@@ -1,0 +1,15 @@
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Horizoft.EMail.dll
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Microsoft.Exchange.WebServices.Auth.dll
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Microsoft.Exchange.WebServices.dll
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.csprojResolveAssemblyReference.cache
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.dll
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Horizoft.EMail.dll
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Horizoft.EMail.pdb
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Microsoft.Exchange.WebServices.Auth.dll
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Microsoft.Exchange.WebServices.dll
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.csprojResolveAssemblyReference.cache
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.dll
+Z:/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.pdb
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/bin/Debug/Horizoft.EMail.pdb
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.csproj.CoreCompileInputs.cache
+/Users/earl/Workspace/Development/Projects/www_App/Horizoft.Relay/Horizoft.EMail/obj/Debug/Horizoft.EMail.pdb

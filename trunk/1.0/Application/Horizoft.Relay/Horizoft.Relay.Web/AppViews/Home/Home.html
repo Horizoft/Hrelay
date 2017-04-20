@@ -1,0 +1,66 @@
+﻿<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="../../Scripts/jquery-ui-1.11.4.custom/jquery-ui.css">
+	<link rel="stylesheet" href="../../Style/pagestructure.css">
+	<link rel="stylesheet" href="../../Style/menu_left.css">
+	<link rel="stylesheet" href="../../Style/component_library.css">
+	<!--<link rel="stylesheet" href="../../Style/stylesheet1.css">-->
+	<style>
+
+
+	</style>
+	<script type="text/javascript" src="../../Scripts/jquery-1.10.2.js"></script>
+	<!--<script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>-->
+	<script type="text/javascript" src="../../Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	<script type="text/javascript" src="../../Scripts/jquery.inputmask.bundle.js"></script>
+
+	<script type="text/javascript" src="../../AppScripts/Utilities/jquery.utilities.js"></script>
+	<script type="text/javascript" src="../../AppScripts/Utilities/jquery.utilities.string.js"></script>
+	<script type="text/javascript" src="../../AppScripts/Utilities/jquery.webapi.js"></script>
+	<script type="text/javascript" src="../../AppScripts/Utilities/jquery.smarttextbox2.js"></script>
+	<script type="text/javascript" src="../../AppScripts/Utilities/jquery.validation.js"></script>
+	<script type="text/javascript" src="../../AppScripts/Utilities/jquery.notification.js"></script>
+	<script type="text/javascript" src="../../AppScripts/Utilities/menu.js"></script>
+	<script>
+		$(document).ready(function(){
+		    $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
+		})
+
+		$(document).on("focus", "#DropDownList2", function () {
+			var source = ["Item 1", "Item 2", "Item 3", "Item 4"];
+    	    $(this).smartTextBox({
+    	        source: source,
+    	        sourceType: "value",
+    	        inputScope: "select_only",
+    	        minLength: 0
+    	    });
+    	})
+
+		$(document).on("change", "#uploadBtn", function(){
+			document.getElementById("uploadFile").value = this.value;
+		});
+
+		// document.getElementById("uploadBtn").onchange = function () {
+    	// 	document.getElementById("uploadFile").value = this.value;
+		// };
+		</script>
+</head>
+
+<body>
+	<div class="view-section-left">
+		<div class="view-section-left-head">UI</div>
+		<div class="view-section-left-container">
+			<div id="menu-left" class="menu-left">
+			</div>
+		</div>
+	</div><!--
+	--><div class="view-section-center">
+		<div class="view-section-center-head">UI - Component - Command - HTML Standard</div>
+		<div class="view-section-center-container">
+
+		</div>
+	</div>
+</body>
+
+</html>
