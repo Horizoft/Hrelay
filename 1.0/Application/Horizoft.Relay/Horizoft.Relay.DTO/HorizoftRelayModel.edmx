@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HorizoftRelayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TemperatureData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonitoredDateTime" Type="datetime" Nullable="false" />
+          <Property Name="MonitoredDate" Type="date" Nullable="false" />
+          <Property Name="MonitoredTime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="PlaceId" Type="int" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="I1" Type="int" />
+          <Property Name="I2" Type="int" />
+          <Property Name="R1" Type="int" />
+          <Property Name="R2" Type="int" />
+          <Property Name="R3" Type="int" />
+          <Property Name="R4" Type="int" />
+          <Property Name="R5" Type="int" />
+          <Property Name="R6" Type="int" />
+          <Property Name="R7" Type="int" />
+          <Property Name="R8" Type="int" />
+          <Property Name="R9" Type="int" />
+          <Property Name="R10" Type="int" />
+          <Property Name="S1" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="S2" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="S3" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="Source" Type="nchar" MaxLength="255" />
+        </EntityType>
+        <Function Name="SPTemperatureReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="placeId" Type="int" Mode="In" />
+          <Parameter Name="areaId" Type="int" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <EntityContainer Name="HorizoftRelayModelStoreContainer">
+          <EntitySet Name="TemperatureData" EntityType="Self.TemperatureData" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HorizoftRelayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TemperatureData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonitoredDateTime" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="MonitoredDate" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="MonitoredTime" Type="Time" Precision="0" Nullable="false" />
+          <Property Name="PlaceId" Type="Int32" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="I1" Type="Int32" />
+          <Property Name="I2" Type="Int32" />
+          <Property Name="R1" Type="Int32" />
+          <Property Name="R2" Type="Int32" />
+          <Property Name="R3" Type="Int32" />
+          <Property Name="R4" Type="Int32" />
+          <Property Name="R5" Type="Int32" />
+          <Property Name="R6" Type="Int32" />
+          <Property Name="R7" Type="Int32" />
+          <Property Name="R8" Type="Int32" />
+          <Property Name="R9" Type="Int32" />
+          <Property Name="R10" Type="Int32" />
+          <Property Name="S1" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="S2" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="S3" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Source" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HorizoftRelayEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TemperatureDatas" EntityType="Self.TemperatureData" />
+          <FunctionImport Name="SPTemperatureReport" ReturnType="Collection(HorizoftRelayModel.SPTemperatureReport_Result)">
+            <Parameter Name="placeId" Mode="In" Type="Int32" />
+            <Parameter Name="areaId" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SPTemperatureReport_Result">
+          <Property Type="DateTime" Name="MonitoredDate" Nullable="true" />
+          <Property Type="Time" Name="MonitoredTime" Nullable="true" />
+          <Property Type="Decimal" Name="AverageTemperature" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HorizoftRelayModelStoreContainer" CdmEntityContainer="HorizoftRelayEntities">
+          <EntitySetMapping Name="TemperatureDatas">
+            <EntityTypeMapping TypeName="HorizoftRelayModel.TemperatureData">
+              <MappingFragment StoreEntitySet="TemperatureData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MonitoredDateTime" ColumnName="MonitoredDateTime" />
+                <ScalarProperty Name="MonitoredDate" ColumnName="MonitoredDate" />
+                <ScalarProperty Name="MonitoredTime" ColumnName="MonitoredTime" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="I1" ColumnName="I1" />
+                <ScalarProperty Name="I2" ColumnName="I2" />
+                <ScalarProperty Name="R1" ColumnName="R1" />
+                <ScalarProperty Name="R2" ColumnName="R2" />
+                <ScalarProperty Name="R3" ColumnName="R3" />
+                <ScalarProperty Name="R4" ColumnName="R4" />
+                <ScalarProperty Name="R5" ColumnName="R5" />
+                <ScalarProperty Name="R6" ColumnName="R6" />
+                <ScalarProperty Name="R7" ColumnName="R7" />
+                <ScalarProperty Name="R8" ColumnName="R8" />
+                <ScalarProperty Name="R9" ColumnName="R9" />
+                <ScalarProperty Name="R10" ColumnName="R10" />
+                <ScalarProperty Name="S1" ColumnName="S1" />
+                <ScalarProperty Name="S2" ColumnName="S2" />
+                <ScalarProperty Name="S3" ColumnName="S3" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPTemperatureReport" FunctionName="HorizoftRelayModel.Store.SPTemperatureReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HorizoftRelayModel.SPTemperatureReport_Result">
+                <ScalarProperty Name="MonitoredDate" ColumnName="MonitoredDate" />
+                <ScalarProperty Name="MonitoredTime" ColumnName="MonitoredTime" />
+                <ScalarProperty Name="AverageTemperature" ColumnName="AverageTemperature" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
