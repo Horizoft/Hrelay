@@ -117,8 +117,13 @@
     <Folder Include="AppScripts\DTO\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="obj\Release\Package\" />
+    <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\HostController.cs" />
+    <Compile Include="API\MailController.cs" />
+    <Compile Include="API\MonitorController.cs" />
     <Compile Include="API\TemperatureReportController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -153,14 +158,24 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MonitorController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppScripts\API\HostAPI.js" />
+    <Content Include="AppScripts\API\MailAPI.js" />
+    <Content Include="AppScripts\API\MonitorAPI.js" />
     <Content Include="AppScripts\API\TemperatureReportAPI.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.menu.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.webapi.js" />
@@ -174,6 +189,41 @@
     <Content Include="AppViews\HTML\Monitor.html" />
     <Content Include="AppViews\HTML\Mail.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Horizoft.Relay.DAL.dll" />
+    <Content Include="bin\Horizoft.Relay.DAL.pdb" />
+    <Content Include="bin\Horizoft.Relay.DTO.dll" />
+    <Content Include="bin\Horizoft.Relay.DTO.pdb" />
+    <Content Include="bin\Horizoft.Relay.Web.dll" />
+    <Content Include="bin\Horizoft.Relay.Web.pdb" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -183,6 +233,9 @@
     <Content Include="Images\cancel.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\edit.png" />
+    <Content Include="obj\Release\Horizoft.Relay.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\Horizoft.Relay.Web.dll" />
+    <Content Include="obj\Release\Horizoft.Relay.Web.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -206,6 +259,9 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.datereport.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.popup.js" />
+    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Release\Horizoft.Relay.Web.csprojResolveAssemblyReference.cache" />
+    <None Include="bin\Horizoft.Relay.Web.dll.config" />
     <None Include="Properties\PublishProfiles\Horizoft.Relay.Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\editor.js" />
@@ -335,6 +391,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Reports\TemperatureDaily.cshtml" />
     <Content Include="TemperatureDaily.html" />
+    <Content Include="Views\Monitor\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Horizoft.Relay.DAL\Horizoft.Relay.DAL.csproj">
