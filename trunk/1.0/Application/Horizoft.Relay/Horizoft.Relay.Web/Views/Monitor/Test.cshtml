@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="~/scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/MonitorAPI.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/MailAPI.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/HostAPI.js"></script>
+
+    <script type="text/javascript">
+        var monitorApi = new MonitorAPI();
+        var mailApi = new MailAPI();
+        var hostApi = new HostAPI();
+
+        $(document).ready(function () {
+
+            var monitor = {
+                id: 9,
+                logURL: "http://monitor.bepetrothai.com/log2.txt",
+                temperatureAlert: 20
+            };
+
+            var mail = {
+                Id: 3,
+                sender: "admin@horizoft.com",
+                recipients: "potsavas.k@horizoft.com;earl@horizoft.com;natthajak.r@horizoft.com",
+                subject: "Test Add1",
+                message: "test1"
+            };
+
+            var host = {
+                id: 3,
+                url: "ews.horizoft.com",
+                protocal: "EWS",
+                port: "88",
+                userName: "ews@horizoft.com",
+                password: "p_12345"
+            };
+            
+            //monitorApi.GetFirst();
+            //monitorApi.Add(monitor);
+            //monitorApi.Update(monitor); 
+            //monitorApi.Delete(monitor);
+
+            //mailApi.GetFirst();
+            //mailApi.Add(mail);
+            //mailApi.Update(mail);
+            //mailApi.Delete(mail);
+
+            //hostApi.GetFirst();
+            //hostApi.Add(host);
+            //hostApi.Update(host);
+            //hostApi.Delete(host);
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
