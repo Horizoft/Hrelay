@@ -68,7 +68,7 @@ namespace Horizoft.Relay.DAL
             if (!string.IsNullOrEmpty(sourceLocation))
             {
                 if (sourceType == SourceType.Url) return GetLogFromUrl(sourceLocation);
-                if (sourceType == SourceType.File) return GetLogFile(sourceLocation);
+                if (sourceType == SourceType.File) return GetLogFromFile(sourceLocation);
             }
 
             return null;
@@ -100,7 +100,7 @@ namespace Horizoft.Relay.DAL
 			return lines;
 		}
 
-        private List<string> GetLogFile(string location)
+        private List<string> GetLogFromFile(string location)
 		{
             //List<string> lines = new List<string>();
 			string csvData = string.Empty;
