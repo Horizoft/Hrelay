@@ -5,14 +5,43 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HorizoftRelayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Host">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Protocal" Type="nvarchar" MaxLength="20" />
+          <Property Name="Port" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sender" Type="nvarchar" MaxLength="255" />
+          <Property Name="Recipients" Type="nvarchar" MaxLength="500" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Message" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="TemperatureAlert" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
         <EntityType Name="TemperatureData">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MonitoredDateTime" Type="datetime" Nullable="false" />
-          <Property Name="MonitoredDate" Type="date" Nullable="false" />
-          <Property Name="MonitoredTime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="MonitoredDateTime" Type="datetime" />
+          <Property Name="MonitoredDate" Type="date" />
+          <Property Name="MonitoredTime" Type="time" Precision="0" />
           <Property Name="PlaceId" Type="int" />
           <Property Name="AreaId" Type="int" />
           <Property Name="I1" Type="int" />
@@ -38,6 +67,9 @@
           <Parameter Name="date" Type="date" Mode="In" />
         </Function>
         <EntityContainer Name="HorizoftRelayModelStoreContainer">
+          <EntitySet Name="Host" EntityType="Self.Host" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mail" EntityType="Self.Mail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemperatureData" EntityType="Self.TemperatureData" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -49,9 +81,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MonitoredDateTime" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="MonitoredDate" Type="DateTime" Precision="0" Nullable="false" />
-          <Property Name="MonitoredTime" Type="Time" Precision="0" Nullable="false" />
+          <Property Name="MonitoredDateTime" Type="DateTime" Precision="3" />
+          <Property Name="MonitoredDate" Type="DateTime" Precision="0" />
+          <Property Name="MonitoredTime" Type="Time" Precision="0" />
           <Property Name="PlaceId" Type="Int32" />
           <Property Name="AreaId" Type="Int32" />
           <Property Name="I1" Type="Int32" />
@@ -78,12 +110,44 @@
             <Parameter Name="areaId" Mode="In" Type="Int32" />
             <Parameter Name="date" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="Hosts" EntityType="HorizoftRelayModel.Host" />
+          <EntitySet Name="Mails" EntityType="HorizoftRelayModel.Mail" />
+          <EntitySet Name="Monitors" EntityType="HorizoftRelayModel.Monitor" />
         </EntityContainer>
         <ComplexType Name="SPTemperatureReport_Result">
           <Property Type="DateTime" Name="MonitoredDate" Nullable="true" />
           <Property Type="Time" Name="MonitoredTime" Nullable="true" />
           <Property Type="Decimal" Name="AverageTemperature" Nullable="true" Precision="38" Scale="6" />
         </ComplexType>
+        <EntityType Name="Host">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Protocal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Port" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Recipients" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TemperatureAlert" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -127,6 +191,38 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Hosts">
+            <EntityTypeMapping TypeName="HorizoftRelayModel.Host">
+              <MappingFragment StoreEntitySet="Host">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="Protocal" ColumnName="Protocal" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mails">
+            <EntityTypeMapping TypeName="HorizoftRelayModel.Mail">
+              <MappingFragment StoreEntitySet="Mail">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Recipients" ColumnName="Recipients" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monitors">
+            <EntityTypeMapping TypeName="HorizoftRelayModel.Monitor">
+              <MappingFragment StoreEntitySet="Monitor">
+                <ScalarProperty Name="TemperatureAlert" ColumnName="TemperatureAlert" />
+                <ScalarProperty Name="LogURL" ColumnName="LogURL" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -63,6 +63,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HorizoftRelayModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Host.cs">
+      <DependentUpon>HorizoftRelayModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mail.cs">
+      <DependentUpon>HorizoftRelayModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Monitor.cs">
+      <DependentUpon>HorizoftRelayModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SPTemperatureReport_Result.cs">
       <DependentUpon>HorizoftRelayModel.tt</DependentUpon>
