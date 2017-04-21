@@ -28,6 +28,9 @@ namespace Horizoft.Relay.DTO
         }
     
         public virtual DbSet<TemperatureData> TemperatureDatas { get; set; }
+        public virtual DbSet<Host> Hosts { get; set; }
+        public virtual DbSet<Mail> Mails { get; set; }
+        public virtual DbSet<Monitor> Monitors { get; set; }
     
         public virtual ObjectResult<SPTemperatureReport_Result> SPTemperatureReport(Nullable<int> placeId, Nullable<int> areaId, Nullable<System.DateTime> date)
         {
