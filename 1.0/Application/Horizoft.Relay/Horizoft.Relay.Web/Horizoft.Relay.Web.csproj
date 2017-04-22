@@ -114,7 +114,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppScripts\DTO\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Release\Package\" />
@@ -177,6 +176,8 @@
     <Content Include="AppScripts\API\MailAPI.js" />
     <Content Include="AppScripts\API\MonitorAPI.js" />
     <Content Include="AppScripts\API\TemperatureReportAPI.js" />
+    <Content Include="AppScripts\DTO\DTHost.js" />
+    <Content Include="AppScripts\DTO\DTMail.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.menu.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.webapi.js" />
     <Content Include="AppScripts\Utilities\jquery.utilities.js" />
@@ -184,8 +185,9 @@
     <Content Include="AppViews\Home\Home.html" />
     <Content Include="AppViews\Home\Index.html" />
     <Content Include="AppViews\Home\LeftMenu.html" />
-    <Content Include="AppViews\HTML\Host.html" />
+    <Content Include="AppViews\HTML\Host1.html" />
     <Content Include="AppViews\HTML\Home.html" />
+    <Content Include="AppViews\HTML\Host.html" />
     <Content Include="AppViews\HTML\Monitor.html" />
     <Content Include="AppViews\HTML\Mail.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
