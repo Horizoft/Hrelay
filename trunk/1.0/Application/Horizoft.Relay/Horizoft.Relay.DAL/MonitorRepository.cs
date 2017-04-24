@@ -19,7 +19,15 @@ namespace Horizoft.Relay.DAL
         public Monitor GetFirst()
         {
             Monitor monitor = new Monitor();
-            monitor = entities.Monitors.OrderByDescending(t => t.Id).FirstOrDefault();
+            try
+            {
+                monitor = entities.Monitors.OrderByDescending(t => t.Id).FirstOrDefault();
+            }
+            catch
+            {
+                monitor = null;
+            }
+            
             return monitor;
         }
 

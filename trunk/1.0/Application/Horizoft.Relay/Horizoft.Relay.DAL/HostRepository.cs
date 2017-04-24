@@ -15,7 +15,14 @@ namespace Horizoft.Relay.DAL
         public Host GetFirst()
         {
             Host host = new Host();
-            host = entities.Hosts.OrderByDescending(t => t.Id).FirstOrDefault();
+            try
+            {
+                host = entities.Hosts.OrderByDescending(t => t.Id).FirstOrDefault();
+            }
+            catch
+            {
+                host = null;
+            }
             return host;
         }
 
