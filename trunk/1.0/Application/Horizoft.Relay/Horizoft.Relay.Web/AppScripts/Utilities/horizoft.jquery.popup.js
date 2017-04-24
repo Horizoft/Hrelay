@@ -1,45 +1,98 @@
 ﻿(function ($) {
-    $.fn.popup = function (data) {
-        var $this = $(this);
+    $.fn.popup = function (options) {
+        var $popup = $(this);
 
-        function show(data) {
-            var $background = $this;
-            var $popup = $this.find("[data-section='popup']");
+        switch(options)
+        {
+            case "init":
+                var $overlay = $(document.createElement("div")).addClass("popup-overlay");
+                var $parent = $popup.parent();
 
-            if (data != null) $popup.bindView(data);
+                $parent.append($overlay);
+                $overlay.append($popup);
+                $popup.addClass("popup-in");
+                
+                break;
 
-            $background.css("display", "block");
+            case "show":
+                $popup.removeClass("popup-out");
+                $popup.addClass("popup-in");
+                var $overlay = $popup.closest("div.popup-overlay");
+                $overlay.css("display", "block");
+
+                break;
         }
 
         function hide() {
-            var $popup = $this.find("[data-section='popup']");
-            $popup.toggleClass("box-popup-success-leave");
-
-            //console.log("popup leaving...");
-
+            // $popup.toggleClass("popup-out");
+            $popup.removeClass("popup-in");
+            $popup.addClass("popup-out");           
+            
             setTimeout(function () {
-                var $background = $this;
-                $background.css("display", "none");
-                $popup.toggleClass("box-popup-success-leave");
-
-                //console.log("popup leaving timeout...");
+                $overlay.css("display", "none");
+                // $popup.toggleClass("popup-out");
+                $popup.removeClass("popup-in");
+                $popup.addClass("popup-out");
 
             }, 500);
+
         }
 
         $(this).on("click", "button", function () {
             var eventType = $(this).data("event-type");
 
             if ((eventType || '') != '') {
-                $this.trigger({
+                $popup.trigger({
                     type: eventType
                 });
             }
 
             hide();
         });
-
-        show(data);
     }
+
+    // $.fn.popup = function (data) {
+    //     var $this = $(this);
+
+    //     function show(data) {
+    //         var $background = $this;
+    //         //var $popup = $this.find("[data-section='popup']");
+
+    //         //if (data != null) $popup.bindView(data);
+
+    //         $background.css("display", "block");
+    //     }
+
+    //     function hide() {
+    //         var $popup = $this.find("[data-section='popup']");
+    //         //$popup.toggleClass("box-popup-success-leave");
+    //         $popup.toggleClass("popup-out");
+
+    //         //console.log("popup leaving...");
+
+    //         setTimeout(function () {
+    //             var $background = $this;
+    //             $background.css("display", "none");
+    //             $popup.toggleClass("popup-out");
+
+    //             //console.log("popup leaving timeout...");
+
+    //         }, 500);
+    //     }
+
+    //     $(this).on("click", "button", function () {
+    //         var eventType = $(this).data("event-type");
+
+    //         if ((eventType || '') != '') {
+    //             $this.trigger({
+    //                 type: eventType
+    //             });
+    //         }
+
+    //         hide();
+    //     });
+
+    //     show(data);
+    // }
 
 }(jQuery));
