@@ -16,7 +16,15 @@ namespace Horizoft.Relay.DAL
         public Mail GetFirst()
         {
             Mail mail = new Mail();
-            mail = entities.Mails.OrderByDescending(t => t.Id).FirstOrDefault();
+            try
+            {
+                mail = entities.Mails.OrderByDescending(t => t.Id).FirstOrDefault();
+            }
+            catch
+            {
+                mail = null;
+            }
+            
             return mail;
         }
 
