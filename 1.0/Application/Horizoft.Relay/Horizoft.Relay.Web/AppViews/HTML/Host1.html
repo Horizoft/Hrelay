@@ -43,18 +43,24 @@
 		    ];
 		    $("#host-list").bindTable(hostList);
 		    $("#host-item").bindView(hostList[0]);
+
+            // $("#popup-host-add").popup("init");
+            $("#popup-host-add-edit").popup("init");
+            $("#popup-host-delete").popup("init");
+
 		})
 
         $(document).on("click", "[data-action='Host-Add']", function () {
-            $("#popup-host-add-edit").popup();
+            // $("#popup-host-add-edit").popup();
+            $("#popup-host-add-edit").popup("show");
         })
 
         $(document).on("click", "[data-action='Host-Edit']", function () {
-            $("#popup-host-add-edit").popup();
+            $("#popup-host-add-edit").popup("show");
         })
 
         $(document).on("click", "[data-action='Host-Delete']", function () {
-            $("#popup-host-delete").popup();
+            $("#popup-host-delete").popup("show");
         })
 
         $(document).on("Host-Add-Edit", "#popup-host-add-edit", function () {
@@ -104,56 +110,87 @@
                     </div>
                 </div>
             </div>
-            <div class="overlay" id="popup-host-add-edit" data-section="background">
-                <div class="box-popup-success" data-section="popup">
-                <!--<div class="card card-3">-->
-                    <table id="host-item" class="form-input">
-                        <tbody>
-                            <tr>
-                                <td>Host</td>
-                                <td>
-                                    <input type="text" data-field="host" />
-                                    <input type="text" data-field="id" hidden />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Protocol</td>
-                                <td><input type="text" data-field="protocol" /></td>
-                            </tr>
-                            <tr>
-                                <td>Port</td>
-                                <td><input type="text" data-field="port" /></td>
-                            </tr>
-                            <tr>
-                                <td>User Name</td>
-                                <td><input type="text" data-field="userName" /></td>
-                            </tr>
-                            <tr>
-                                <td>Password</td>
-                                <td><input type="text" data-field="password" /></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="form-command-container">
-                        <div class="form-command">
-                            <button class="command-green" data-event-type="Host-Add-Edit">Save</button>
-                            <button class="command-red">Cancel</button>
-                        </div>
+            <!--<div id="popup-host-add" class="popup-view">
+                <table id="host-item" class="form-input">
+                    <tbody>
+                        <tr>
+                            <td>Host</td>
+                            <td>
+                                <input type="text" data-field="host" />
+                                <input type="text" data-field="id" hidden />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Protocol</td>
+                            <td><input type="text" data-field="protocol" /></td>
+                        </tr>
+                        <tr>
+                            <td>Port</td>
+                            <td><input type="text" data-field="port" /></td>
+                        </tr>
+                        <tr>
+                            <td>User Name</td>
+                            <td><input type="text" data-field="userName" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" data-field="password" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-command-container">
+                    <div class="form-command">
+                        <button class="command-green"data-event-type="Host-Add-Edit">Save</button>
+                        <button class="command-red">Cancel</button>
+                    </div>
+                </div>
+            </div>-->
+            <div id="popup-host-add-edit" class="popup-view">
+            <!--<div class="card card-3">-->
+                <table id="host-item" class="form-input">
+                    <tbody>
+                        <tr>
+                            <td>Host</td>
+                            <td>
+                                <input type="text" data-field="host" />
+                                <input type="text" data-field="id" hidden />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Protocol</td>
+                            <td><input type="text" data-field="protocol" /></td>
+                        </tr>
+                        <tr>
+                            <td>Port</td>
+                            <td><input type="text" data-field="port" /></td>
+                        </tr>
+                        <tr>
+                            <td>User Name</td>
+                            <td><input type="text" data-field="userName" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" data-field="password" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-command-container">
+                    <div class="form-command">
+                        <button class="command-green" data-event-type="Host-Add-Edit">Save</button>
+                        <button class="command-red">Cancel</button>
                     </div>
                 </div>
             </div>
-            <div class="overlay" id="popup-host-delete" data-section="background">
-                <div class="box-popup-success" data-section="popup">
-                <!--<div class="card card-3">-->
-                    <div class="form-command-container">
-                        <div>Do you want to delete host</div>
-                        <div data-field="host"></div>
-                        <div class="form-command">
-                            <button class="command-green" data-event-type="Host-Delete">Yes</button>
-                            <button class="command-red">No</button>
-                        </div>
-                    </div>
+        <div id="popup-host-delete" class="popup-view">
+        <!--<div class="card card-3">-->
+            <div class="form-command-container">
+                <div>Do you want to delete host</div>
+                <div data-field="host"></div>
+                <div class="form-command">
+                        <button class="command-green" data-event-type="Host-Delete">Yes</butto>
+                    <button class="command-red">No</button>
                 </div>
+            </div>
             </div>
         </div>
 	</div>

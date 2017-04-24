@@ -1,16 +1,12 @@
 ﻿<html>
 <head>
 	<title></title>
-	<!--<link rel="stylesheet" href="../../Scripts/jquery-ui-1.11.4.custom/jquery-ui.css">-->
 	<link rel="stylesheet" href="/Styles/pagestructure.css">
 	<link rel="stylesheet" href="/Styles/menu_left.css">
 	<link rel="stylesheet" href="/Styles/component_library.css">
     <link rel="stylesheet" href="/Styles/jquery-te-1.4.0.css">
-    <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">-->
-<!--    <link rel="stylesheet" href="/Styles/editor.css">-->
     <link rel="stylesheet" href="/Styles/page-input.css">
-	<!--<link rel="stylesheet" href="../../Style/stylesheet1.css">-->
+    <link rel="stylesheet" href="/Styles/popup.css">
 	<style>
 
         .jqte {
@@ -23,15 +19,13 @@
 	<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
     <script type="text/javascript" src="/Scripts/jquery-te-1.4.0.min.js"></script>
-    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-    <!--<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-    <!--<script type="text/javascript" src="/Scripts/editor.js"></script>-->
 	
     <script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.string.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/jquery.webapi.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
     <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
+    <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.popup.js"></script>
     <script type="text/javascript" src="/AppScripts/API/MailAPI.js"></script>
     <script type="text/javascript" src="/AppScripts/DTO/DTMail.js"></script>
 	<script>
@@ -40,53 +34,36 @@
 	    $(document).ready(function () {
             $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
 
-            var mail = mailApi.GetFirst();
+            $("#popup-mail-get-fail").popup("init");
+            $("#popup-mail-save-success").popup("init");
+            $("#popup-mail-reset").popup("init");
 
-            //var mail = {
-            //    id: 2,
-            //    sender: "hrmadmin@horizoft.com",
-            //    recipients: "potsavas.k@horizoft.com;earl@horizoft.com;natthajak.r@horizoft.com",
-            //    subject: "เตือนอุณหภูมิห้อง Server ขึ้นสูง",
-            //    message: "Monitored time is {LOG_TIME}<br />\r\n"
-            //           + "Server Room Temperature (°C)<br />"
-            //           + "อุณหภูมิเซนเซอร์ตัวที่ 1: {SENSOR_1}°C<br />"
-            //           + "อุณหภูมิเซนเซอร์ตัวที่ 2: {SENSOR_2}°C<br />"
-            //           + "<br />"
-		    //           + "พัดลมตั้งพื้น: {RELAY_4}<br />\r\n"
-            //           + "Exhaust Fan: {RELAY_5}<br />\r\n"
-            //           + "Air Vent: {RELAY_6}<br />\r\n"
-            //           + "แอร์เครื่องที่ 1 18,000 BTU: {RELAY_1}<br />\r\n"
-            //           + "แอร์เครื่องที่ 2 14,000 BTU: {RELAY_2}<br />\r\n"
-            //           + "แอร์เครื่องที่ 3 18,000 BTU: {RELAY_3}<br />\r\n"
-            //           + "<br />\r\n"
-            //           + "หมายเหตุ<br />\r\n"
-            //           + "1. อุณหภูมิตั้งแต่ 40°C ขึ้นไป ควรแจ้งเปิดแอร์ตึก<br />\r\n"
-            //           + "2. อุณหภูมิ 35-40°C เฝ้าระวัง<br />\r\n"
-            //           + "3. อุณหภูมิต่ำกว่า 35°C ปกติ<br />\r\n"
-            //           + "<br />\r\n"
-            //           + "My Name<br />\r\n"
-            //           + "My Department<br />\r\n"
-            //           + "My Contact\r\n"
-            //};
+
+            var mail = mailApi.GetFirst();
 
             $(".form-input").bindView(mail);
             $(".form-input-message").jqte();
 
-            var message = $(".jqte_editor").text();
         })
 
         $(document).on("click", "[data-action='Mail-Save']", function () {
-            var mail = $("#mail-input").retrieve(new DTMail());
-            mail.message = $(".jqte_editor").html();
+            // var mail = $("#mail-input").retrieve(new DTMail());
+            // mail.message = $(".jqte_editor").html();
 
-            if (mailApi.GetFirst())
-                mailApi.Update(mail);
-            else
-                mailApi.Add(mail);
+            // if (mailApi.GetFirst())
+            //     mailApi.Update(mail);
+            // else
+            //     mailApi.Add(mail);
 
-            var n = 0;
+            // var n = 0;
             //mailApi.Add(mail);
+            $("#popup-mail-save").popup("show");
         })
+
+        $(document).on("click", "[data-action='Mail-Reset']", function(){
+            $("#popup-mail-reset").popup("show");
+        })
+
 
 		</script>
 </head>
@@ -132,9 +109,62 @@
                     </tbody>
                 </table>
                 <div class="form-command-container">
-                    <div class="form-command">
+                    <div class="form-command" style="float:left">
+                        <button class="command-red" data-action="Mail-Reset">Reset</button>
+                    </div>
+                    <div class="form-command" style="float:right">
                         <button class="command-green" data-action="Mail-Save">Save</button>
                         <button class="command-red" data-action="Mail-Cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-mail-save-success" class="popup-view">
+                <div class="form-command-container">
+                    <div>Mail setting saved successfully.</div>
+                    <div><br/></div>
+                    <div data-field="host"></div>
+                    <div class="form-command">
+                        <button class="command-green" data-event-type="Host-Save">OK</butto>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-mail-get-fail" class="popup-view">
+                <div class="form-command-container">
+                    <div>Failed to get mail setting.</div>
+                    <div><br/></div>
+                    <div data-field="host"></div>
+                    <div class="form-command">
+                        <button class="command-green" data-event-type="Host-Get">OK</butto>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-mail-reset" class="popup-view">
+                <div class="form-command-container">
+                    <div>Do you want to reset mail setting?</div>
+                    <div><br/></div>
+                    <div class="form-command">
+                        <button class="command-green" data-event-type="Mail-Reset">Yes</butto>
+                        <button class="command-red">No</button>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-mail-reset-success" class="popup-view">
+                <div class="form-command-container">
+                    <div>Mail setting reset successfully.</div>
+                    <div><br/></div>
+                    <div data-field="host"></div>
+                    <div class="form-command">
+                        <button class="command-green" data-event-type="Host-Save">OK</butto>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-mail-reset-fail" class="popup-view">
+                <div class="form-command-container">
+                    <div>Failed to reset mail setting.</div>
+                    <div><br/></div>
+                    <div data-field="host"></div>
+                    <div class="form-command">
+                        <button class="command-green" data-event-type="Host-Save">OK</butto>
                     </div>
                 </div>
             </div>
