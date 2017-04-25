@@ -14,28 +14,72 @@ namespace Horizoft.Relay.API
         private MailRepository mailRepository = new MailRepository();
 
         [HttpGet]
-        public Mail GetFirst()
+        public IHttpActionResult GetFirst()
         {
-            return mailRepository.GetFirst();
+            try
+            {
+                Mail mail = mailRepository.GetFirst();
+                if (mail != null)
+                {
+                    return Ok(mail);
+                }
+                else
+                {
+                    return StatusCode(HttpStatusCode.NotFound);
+                }
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
+
         }
 
         [HttpPost]
-        public bool Add(Mail mail)
+        public IHttpActionResult Add(Mail mail)
         {
-            return mailRepository.Add(mail);
+            try
+            {
+                mailRepository.Add(mail);
+
+                return Ok(mail);
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
 
         }
 
         [HttpPost]
-        public bool Update(Mail mail)
+        public IHttpActionResult Update(Mail mail)
         {
-            return mailRepository.Update(mail);
+            try
+            {
+                mailRepository.Update(mail);
+                return Ok(mail);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
         }
 
         [HttpPost]
-        public bool Delete(Mail mail)
+        public IHttpActionResult Delete(Mail mail)
         {
-            return mailRepository.Delete(mail);
+            try
+            {
+                mailRepository.Delete(mail);
+                return Ok(mail);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
     }
 }
