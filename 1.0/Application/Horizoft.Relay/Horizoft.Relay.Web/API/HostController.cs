@@ -14,28 +14,67 @@ namespace Horizoft.Relay.API
         private HostRepository hostRepository = new HostRepository();
 
         [HttpGet]
-        public Host GetFirst()
+        public IHttpActionResult GetFirst()
         {
-            return hostRepository.GetFirst();
+            try
+            {
+                Host host = hostRepository.GetFirst();
+                if (host != null)
+                {
+                    return Ok(host);
+                }
+                else
+                {
+                    return StatusCode(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         [HttpPost]
-        public bool Add(Host host)
+        public IHttpActionResult Add(Host host)
         {
-            return hostRepository.Add(host);
+            try
+            {
+                hostRepository.Add(host);
 
+                return Ok(host);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         [HttpPost]
-        public bool Update(Host host)
+        public IHttpActionResult Update(Host host)
         {
-            return hostRepository.Update(host);
+            try
+            {
+                hostRepository.Update(host);
+                return Ok(host);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         [HttpPost]
-        public bool Delete(Host host)
+        public IHttpActionResult Delete(Host host)
         {
-            return hostRepository.Delete(host);
+            try
+            {
+                hostRepository.Delete(host);
+                return Ok(host);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
     }
 }

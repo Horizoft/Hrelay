@@ -14,28 +14,68 @@ namespace Horizoft.Relay.API
         private MonitorRepository monitorRepository = new MonitorRepository();
        
         [HttpGet]
-        public Monitor GetFirst()
+        public IHttpActionResult GetFirst()
         {
-            return monitorRepository.GetFirst();
+            try
+            {
+                Monitor monitor = monitorRepository.GetFirst();
+                if (monitor != null)
+                {
+                    return Ok(monitor);
+                }
+                else
+                {
+                    return StatusCode(HttpStatusCode.NotFound);
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         [HttpPost]
-        public bool Add(Monitor monitor)
+        public IHttpActionResult Add(Monitor monitor)
         {
-           return monitorRepository.Add(monitor);
-            
+            try
+            {
+                monitorRepository.Add(monitor);
+
+                return Ok(monitor);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
         }
 
         [HttpPost]
-        public bool Update(Monitor monitor)
+        public IHttpActionResult Update(Monitor monitor)
         {
-            return monitorRepository.Update(monitor);
+            try
+            {
+                monitorRepository.Update(monitor);
+                return Ok(monitor);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
         [HttpPost]
-        public bool Delete(Monitor monitor)
+        public IHttpActionResult Delete(Monitor monitor)
         {
-           return monitorRepository.Delete(monitor);
+            try
+            {
+                monitorRepository.Delete(monitor);
+                return Ok(monitor);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
         }
 
     }
