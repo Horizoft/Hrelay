@@ -190,6 +190,7 @@
     <Content Include="AppScripts\Utilities\horizoft.jquery.webapi.js" />
     <Content Include="AppScripts\Utilities\jquery.utilities.js" />
     <Content Include="AppScripts\Utilities\jquery.utilities.string.js" />
+    <Content Include="AppScripts\Utilities\Utilities.API.js" />
     <Content Include="AppViews\Home\Home.html" />
     <Content Include="AppViews\Home\Index.html" />
     <Content Include="AppViews\Home\LeftMenu.html" />
