@@ -124,8 +124,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="obj\Release\Package\" />
-    <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\HostController.cs" />
@@ -171,12 +169,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,9 +201,6 @@
     <Content Include="Images\cancel.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\edit.png" />
-    <Content Include="obj\Release\Horizoft.Relay.Web.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Release\Horizoft.Relay.Web.dll" />
-    <Content Include="obj\Release\Horizoft.Relay.Web.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -235,8 +224,6 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.datereport.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.popup.js" />
-    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Release\Horizoft.Relay.Web.csprojResolveAssemblyReference.cache" />
     <None Include="Properties\PublishProfiles\Horizoft.Relay.Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\editor.js" />
