@@ -8,6 +8,7 @@
     <title></title>
     <script type="text/javascript" src="~/scripts/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/Utilities.API.js"></script>
     <script type="text/javascript" src="~/AppScripts/API/MonitorAPI.js"></script>
     <script type="text/javascript" src="~/AppScripts/API/MailAPI.js"></script>
     <script type="text/javascript" src="~/AppScripts/API/HostAPI.js"></script>
@@ -26,10 +27,10 @@
             };
 
             var mail = {
-                Id: 3,
+                Id: 8,
                 sender: "admin@horizoft.com",
                 recipients: "potsavas.k@horizoft.com;earl@horizoft.com;natthajak.r@horizoft.com",
-                subject: "Test Add1",
+                subject: "Test Edit2",
                 message: "test1"
             };
 
@@ -47,7 +48,7 @@
             //monitorApi.Update(monitor); 
             //monitorApi.Delete(monitor);
 
-            //mailApi.GetFirst();
+            mailApi.GetFirst();
             //mailApi.Add(mail);
             //mailApi.Update(mail);
             //mailApi.Delete(mail);
