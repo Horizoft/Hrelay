@@ -14,43 +14,19 @@ namespace Horizoft.Relay.DAL
         public HostRepository() { }
         public Host GetFirst()
         {
-            Host host = new Host();
-            try
-            {
-                host = entities.Hosts.OrderByDescending(t => t.Id).FirstOrDefault();
-            }
-            catch
-            {
-                host = null;
-            }
+                return entities.Hosts.OrderByDescending(t => t.Id).FirstOrDefault();
+        }
+
+        public Host Add(Host host)
+        {
+                entities.Hosts.Add(host);
+                entities.SaveChanges();
+
             return host;
         }
 
-        public bool Add(Host host)
+        public Host Update(Host host)
         {
-            bool state = false;
-            try
-            {
-                if (host == null) return false;
-                entities.Hosts.Add(host);
-                entities.SaveChanges();
-                state = true;
-            }
-            catch
-            {
-                state = false;
-            }
-
-            return state;
-        }
-
-        public bool Update(Host host)
-        {
-            bool state = false;
-            try
-            {
-                if (host == null) return false;
-
                 var prop = host.GetType().GetProperty("Id");
                 if (prop != null)
                 {
@@ -59,39 +35,22 @@ namespace Horizoft.Relay.DAL
                     {
                         entities.Entry(existingEntity).CurrentValues.SetValues(host);
                         entities.SaveChanges();
-                        state = true;
                     }
                 }
-            }
-            catch
-            {
-                state = false;
-            }
 
-            return state;
+            return host;
         }
 
-        public bool Delete(Host host)
+        public Host Delete(Host host)
         {
-            bool state = false;
-            try
-            {
-                if (host == null) return false;
-
                 var existingEntity = GetById(host.Id);
                 if (existingEntity != null)
                 {
                     entities.Hosts.Remove(existingEntity);
                     entities.SaveChanges();
-                    state = true;
                 }
-            }
-            catch
-            {
-                state = false;
-            }
 
-            return state;
+            return host;
         }
 
         public Host GetById(int id)

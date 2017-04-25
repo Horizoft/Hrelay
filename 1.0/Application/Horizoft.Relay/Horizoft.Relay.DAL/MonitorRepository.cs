@@ -12,49 +12,21 @@ namespace Horizoft.Relay.DAL
     {
         private HorizoftRelayEntities entities = new HorizoftRelayEntities();
 
-        public MonitorRepository()
-        {
-        
-        }
+        public MonitorRepository(){}
         public Monitor GetFirst()
         {
-            Monitor monitor = new Monitor();
-            try
-            {
-                monitor = entities.Monitors.OrderByDescending(t => t.Id).FirstOrDefault();
-            }
-            catch
-            {
-                monitor = null;
-            }
+            return entities.Monitors.OrderByDescending(t => t.Id).FirstOrDefault();
+        }
+
+        public Monitor Add(Monitor monitor)
+        {
+            entities.Monitors.Add(monitor);
+            entities.SaveChanges();
             
             return monitor;
         }
-
-        public bool Add(Monitor monitor)
-        {
-            bool state = false;
-            try
-            {
-                if (monitor == null) return false;
-                entities.Monitors.Add(monitor);
-                entities.SaveChanges();
-                state = true;
-            }
-            catch
-            {
-                state = false;
-            }
-
-            return state;
-        }
-        public bool Update(Monitor monitor)
-        {
-            bool state = false;
-            try
-            {             
-                if (monitor == null) return false;
-
+        public Monitor Update(Monitor monitor)
+        {       
                 var prop = monitor.GetType().GetProperty("Id");
                 if (prop != null)
                 {
@@ -63,40 +35,15 @@ namespace Horizoft.Relay.DAL
                     {
                         entities.Entry(existingEntity).CurrentValues.SetValues(monitor);
                         entities.SaveChanges();
-                        state = true;
+                       
                     }
                 }
-            }
-            catch
-            {
-                state = false;
-            }
-
-            return state;
+           
+            return monitor;
         }
-        //public int Update(Monitor monitor)
-        //{
 
-        //    if (monitor == null) return -1;
-
-        //    var prop = monitor.GetType().GetProperty("Id");
-        //    if (prop != null)
-        //    {
-        //        var existingEntity = GetById(monitor.Id);
-        //        if (existingEntity != null)
-        //        {
-        //            entities.Entry(existingEntity).CurrentValues.SetValues(monitor);
-        //        }
-        //    }
-
-        //   return entities.SaveChanges();
-        //}
-
-        public bool Delete(Monitor monitor)
+        public Monitor Delete(Monitor monitor)
         {
-            bool state = false;
-            try
-            {
                 if (monitor == null) return false;
 
                 var existingEntity = GetById(monitor.Id);
@@ -104,15 +51,10 @@ namespace Horizoft.Relay.DAL
                 {
                     entities.Monitors.Remove(existingEntity);
                     entities.SaveChanges();
-                    state = true;
+                    
                 }
-            }
-            catch
-            {
-                state = false;
-            }
 
-            return state;
+            return monitor;
         }
 
         public Monitor GetById(int id)
