@@ -5,26 +5,54 @@
 
     this.GetFirst = function () {
         var action = "GetFirst"
-        var host = this.webApi.getData(this.url + action);
+        var type = "GET"
+        var host = CRUD(host, this.url + action, type);
         return host;
     }
 
     this.Add = function (host) {
         var action = "Add"
-        var host = this.webApi.postDataAndGetStatus(this.url + action, host)
+        var type = "POST"
+        var host = CRUD(host, this.url + action, type);
         return host;
     }
 
     this.Update = function (host) {
         var action = "Update"
-        var host = this.webApi.postDataAndGetStatus(this.url + action, host);
+        var type = "POST"
+        var host = CRUD(host, this.url + action, type);
         return host;
     }
 
     this.Delete = function (host) {
         var action = "Delete"
-        var host = this.webApi.postDataAndGetStatus(this.url + action, host);
+        var type = "POST"
+        var host = CRUD(host, this.url + action, type);
         return host;
     }
+
+    //this.GetFirst = function () {
+    //    var action = "GetFirst"
+    //    var host = this.webApi.getData(this.url + action);
+    //    return host;
+    //}
+
+    //this.Add = function (host) {
+    //    var action = "Add"
+    //    var host = this.webApi.postDataAndGetStatus(this.url + action, host)
+    //    return host;
+    //}
+
+    //this.Update = function (host) {
+    //    var action = "Update"
+    //    var host = this.webApi.postDataAndGetStatus(this.url + action, host);
+    //    return host;
+    //}
+
+    //this.Delete = function (host) {
+    //    var action = "Delete"
+    //    var host = this.webApi.postDataAndGetStatus(this.url + action, host);
+    //    return host;
+    //}
 
 }
