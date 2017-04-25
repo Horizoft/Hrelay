@@ -44,14 +44,11 @@ namespace Horizoft.Relay.DAL
 
         public Monitor Delete(Monitor monitor)
         {
-                if (monitor == null) return false;
-
                 var existingEntity = GetById(monitor.Id);
                 if (existingEntity != null)
                 {
                     entities.Monitors.Remove(existingEntity);
                     entities.SaveChanges();
-                    
                 }
 
             return monitor;
