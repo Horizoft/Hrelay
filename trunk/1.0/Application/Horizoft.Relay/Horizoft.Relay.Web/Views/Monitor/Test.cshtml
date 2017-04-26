@@ -48,7 +48,30 @@
             //monitorApi.Update(monitor); 
             //monitorApi.Delete(monitor);
 
-            mailApi.GetFirst();
+            console.log("Get Mail data :");
+            var mail = mailApi.GetFirst();
+            console.log("     " + mail.error);
+
+            if (mail.error == undefined) {
+                console.log("     Found Mail data.");
+            }
+
+            console.log("Get Monitor data :");
+            var monitor = monitorApi.GetFirst();
+            console.log("     " + monitor.error);
+
+            if (monitor.error == undefined) {
+                console.log("     Found Monitor data.");
+            }
+
+            console.log("Get Host data :");
+            var host = hostApi.GetFirst();
+            console.log("     " + host.error);
+
+            if (host.error == undefined) {
+                console.log("     Found Host data.");
+            }
+
             //mailApi.Add(mail);
             //mailApi.Update(mail);
             //mailApi.Delete(mail);
