@@ -1,26 +1,31 @@
 ﻿(function ($) {
-    $.fn.popup = function (options) {
+    $.fn.popup = function (configurations) {
         var $popup = $(this);
 
-        switch(options)
-        {
-            case "init":
-                var $overlay = $(document.createElement("div")).addClass("popup-overlay");
-                var $parent = $popup.parent();
+        if ((configurations || '') == '') {
+            configurations.status = "";
+            configurations.show = false;
+        }
 
-                $parent.append($overlay);
-                $overlay.append($popup);
-                $popup.addClass("popup-in");
-                
-                break;
+        if ((configurations.status || '') == '') configurations.status = '';
+        if ((configurations.show || '') == '') configurations.show = false;
 
-            case "show":
-                $popup.removeClass("popup-out");
-                $popup.addClass("popup-in");
-                var $overlay = $popup.closest("div.popup-overlay");
-                $overlay.css("display", "block");
+        if (configurations.status == "init") {
+            var $overlay = $(document.createElement("div")).addClass("popup-overlay");
+            var $parent = $popup.parent();
 
-                break;
+            $parent.append($overlay);
+            $overlay.append($popup);
+            $popup.addClass("popup-in");
+        }
+
+        if (configurations.show) {
+            $popup.bindView({ popup_message: configurations.message });
+
+            $popup.removeClass("popup-out");
+            $popup.addClass("popup-in");
+            var $overlay = $popup.closest("div.popup-overlay");
+            $overlay.css("display", "block");
         }
 
         function hide() {
