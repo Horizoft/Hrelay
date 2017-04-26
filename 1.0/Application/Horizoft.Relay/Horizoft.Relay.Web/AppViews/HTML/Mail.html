@@ -22,7 +22,7 @@
 	
     <script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.string.js"></script>
-	<script type="text/javascript" src="/AppScripts/Utilities/jquery.webapi.js"></script>
+	<script type="text/javascript" src="/AppScripts/Utilities/Utilities.API.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
     <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
     <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.popup.js"></script>
@@ -34,15 +34,22 @@
 	    $(document).ready(function () {
             $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
 
-            $("#popup-mail-get-fail").popup("init");
-            $("#popup-mail-save-success").popup("init");
-            $("#popup-mail-reset").popup("init");
-
+            $("#popup-warning").popup({ status: "init" });
+            $("#popup-notification").popup({ status: "init" });
 
             var mail = mailApi.GetFirst();
 
-            $(".form-input").bindView(mail);
-            $(".form-input-message").jqte();
+            // mail.errorStatus;
+            // mail.errorMessage;
+
+            // if (!mai.errorStatus) {
+            if (mail.error == undefined) {
+                $(".form-input").bindView(mail);
+                $(".form-input-message").jqte();
+            }
+            else {
+                $("#popup-notification").popup({ show: true, message: "Failed to load mail setting." });
+            }
 
         })
 
@@ -57,11 +64,14 @@
 
             // var n = 0;
             //mailApi.Add(mail);
-            $("#popup-mail-save").popup("show");
+
+            $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?" });
+            // $("#popup-notification").popup({ show: true, message: "Mail setting saved successfully." });
         })
 
         $(document).on("click", "[data-action='Mail-Reset']", function(){
-            $("#popup-mail-reset").popup("show");
+            $("#popup-warning").popup({ show: true, message: "Do you want to reset mail setting?" });
+            // $("#popup-notification").popup({ show: true, message: "Mail setting reset successfully." });
         })
 
 
@@ -118,53 +128,23 @@
                     </div>
                 </div>
             </div>
-            <div id="popup-mail-save-success" class="popup-view">
+            <div id="popup-notification" class="popup-view">
                 <div class="form-command-container">
-                    <div>Mail setting saved successfully.</div>
+                    <div data-field="popup_message"></div>
                     <div><br/></div>
                     <div data-field="host"></div>
                     <div class="form-command">
-                        <button class="command-green" data-event-type="Host-Save">OK</butto>
+                        <button class="command-green" data-event-type="Popup-Close">Close</button>
                     </div>
                 </div>
             </div>
-            <div id="popup-mail-get-fail" class="popup-view">
+            <div id="popup-warning" class="popup-view">
                 <div class="form-command-container">
-                    <div>Failed to get mail setting.</div>
-                    <div><br/></div>
-                    <div data-field="host"></div>
-                    <div class="form-command">
-                        <button class="command-green" data-event-type="Host-Get">OK</butto>
-                    </div>
-                </div>
-            </div>
-            <div id="popup-mail-reset" class="popup-view">
-                <div class="form-command-container">
-                    <div>Do you want to reset mail setting?</div>
+                    <div data-field="popup_message"></div>
                     <div><br/></div>
                     <div class="form-command">
-                        <button class="command-green" data-event-type="Mail-Reset">Yes</butto>
+                        <button class="command-green" data-event-type="Popup-Yes">Yes</button>
                         <button class="command-red">No</button>
-                    </div>
-                </div>
-            </div>
-            <div id="popup-mail-reset-success" class="popup-view">
-                <div class="form-command-container">
-                    <div>Mail setting reset successfully.</div>
-                    <div><br/></div>
-                    <div data-field="host"></div>
-                    <div class="form-command">
-                        <button class="command-green" data-event-type="Host-Save">OK</butto>
-                    </div>
-                </div>
-            </div>
-            <div id="popup-mail-reset-fail" class="popup-view">
-                <div class="form-command-container">
-                    <div>Failed to reset mail setting.</div>
-                    <div><br/></div>
-                    <div data-field="host"></div>
-                    <div class="form-command">
-                        <button class="command-green" data-event-type="Host-Save">OK</butto>
                     </div>
                 </div>
             </div>
