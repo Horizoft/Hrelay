@@ -5,30 +5,54 @@
 	<link rel="stylesheet" href="/Styles/menu_left.css">
 	<link rel="stylesheet" href="/Styles/component_library.css">
     <link rel="stylesheet" href="/Styles/page-input.css">
+    <link rel="stylesheet" href="/Styles/popup.css">
 	<style>
 
 	</style>
 
-	<script type="text/javascript" src="/Scripts/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 	
     <script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.string.js"></script>
-	<script type="text/javascript" src="/AppScripts/Utilities/jquery.webapi.js"></script>
+	<script type="text/javascript" src="/AppScripts/Utilities/Utilities.API.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
+    <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
+    <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.popup.js"></script>
+    <script type="text/javascript" src="/AppScripts/API/MonitorAPI.js"></script>
+    <script type="text/javascript" src="/AppScripts/DTO/DTMonitor.js"></script>
 	<script>
+
+	    var monitorApi = new MonitorAPI();
+
         $(document).ready(function(){
             $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
 
-            var monitor = {
-                id: 1,
-                logURL : "http://monitor.bepetrothai.com/log.txt",
-                temperatureAlert : 20
-            };
+            $("#popup-warning").popup({ status: "init" });
+            $("#popup-notification").popup({ status: "init" });
 
-            $(".form-input").bindView(monitor);
+            var api = monitorApi.GetFirst();
 
+            if (api.error == undefined) {
+                var monitor = api.data;
+                if ((monitor || '') != '')
+                    $(".form-input").bindView(monitor);
+            }
+            else {
+                $("#popup-notification").popup({ show: true, message: "Failed to load host setting." });
+            }
+        })
+
+        $(document).on("click", "[data-action='Monitor-Save']", function () {
+            $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?", eventName: "onSaveMonitor" });
+        })
+
+        $(document).on("onSaveMonitor", "#popup-warning", function () {
+            var monitor = $("#monitor-item").retrieve(new DTMonitor());
+
+            if (monitor.id != '')
+                monitorApi.Update(monitor);
+            else
+                monitorApi.Add(monitor);
         })
 
 		</script>
@@ -46,11 +70,14 @@
 		<div class="view-section-center-head"></div>
 		<div class="view-section-center-container">
             <div class="card card-3">
-                <table class="form-input">
+                <table id="monitor-item" class="form-input">
                     <tbody>
                         <tr>
                             <td>Log URL</td>
-                            <td><input type="text" data-field="logURL" /></td>
+                            <td>
+                                <input type="text" data-field="logURL" />
+                                <input type="text" data-field="id" hidden />
+                            </td>
                         </tr>
                         <tr>
                             <td>Temperature Alert</td>
@@ -59,9 +86,32 @@
                     </tbody>
                 </table>
                 <div class="form-command-container">
+                    <div class="form-command" style="float:left">
+                        <button class="command-red" data-action="Monitor-Reset">Reset</button>
+                    </div>
+                    <div class="form-command" style="float:right">
+                        <button class="command-green" data-action="Monitor-Save">Save</button>
+                        <button class="command-red" data-action="Monitor-Cancel">Cancel</button>
+                    </div>
+                </div>
+           </div>
+            <div id="popup-notification" class="popup-view">
+                <div class="form-command-container">
+                    <div data-field="popup_message"></div>
+                    <div><br/></div>
+                    <div data-field="host"></div>
                     <div class="form-command">
-                        <button class="command-green">Save</button>
-                        <button class="command-red">Cancel</button>
+                        <button class="command-green">Close</button>
+                    </div>
+                </div>
+            </div>
+            <div id="popup-warning" class="popup-view">
+                <div class="form-command-container">
+                    <div data-field="popup_message"></div>
+                    <div><br/></div>
+                    <div class="form-command">
+                        <button class="command-green" data-popup-event="true">Yes</button>
+                        <button class="command-red">No</button>
                     </div>
                 </div>
             </div>

@@ -19,14 +19,14 @@ namespace Horizoft.Relay.API
             try
             {
                 Host host = hostRepository.GetFirst();
-                if (host != null)
+                //if (host != null)
                 {
                     return Ok(host);
                 }
-                else
-                {
-                    return StatusCode(HttpStatusCode.NotFound);
-                }
+                //else
+                //{
+                //    return StatusCode(HttpStatusCode.NotFound);
+                //}
             }
             catch (Exception ex)
             {

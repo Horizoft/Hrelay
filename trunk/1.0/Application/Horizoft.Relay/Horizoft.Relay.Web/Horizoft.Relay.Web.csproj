@@ -15,7 +15,7 @@
     <AssemblyName>Horizoft.Relay.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -178,6 +178,7 @@
     <Content Include="AppScripts\API\TemperatureReportAPI.js" />
     <Content Include="AppScripts\DTO\DTHost.js" />
     <Content Include="AppScripts\DTO\DTMail.js" />
+    <Content Include="AppScripts\DTO\DTMonitor.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.menu.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.webapi.js" />
     <Content Include="AppScripts\Utilities\jquery.utilities.js" />
@@ -186,7 +187,7 @@
     <Content Include="AppViews\Home\Home.html" />
     <Content Include="AppViews\Home\Index.html" />
     <Content Include="AppViews\Home\LeftMenu.html" />
-    <Content Include="AppViews\HTML\Host1.html" />
+    <Content Include="AppViews\HTML\Report.html" />
     <Content Include="AppViews\HTML\Home.html" />
     <Content Include="AppViews\HTML\Host.html" />
     <Content Include="AppViews\HTML\Monitor.html" />
@@ -390,7 +391,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16052</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:16052/</IISUrl>
+          <IISUrl>http://relay.horizoft.prl</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -19,14 +19,14 @@ namespace Horizoft.Relay.API
             try
             {
                 Mail mail = mailRepository.GetFirst();
-                if (mail != null)
+                //if (mail != null)
                 {
                     return Ok(mail);
                 }
-                else
-                {
-                    return StatusCode(HttpStatusCode.NotFound);
-                }
+                //else
+                //{
+                //    return StatusCode(HttpStatusCode.NotFound);
+                //}
             }
             catch(Exception ex)
             {

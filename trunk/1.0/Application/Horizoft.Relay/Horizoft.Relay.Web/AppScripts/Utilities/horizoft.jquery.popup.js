@@ -44,12 +44,15 @@
         }
 
         $(this).on("click", "button", function () {
-            var eventType = $(this).data("event-type");
+            //var eventType = $(this).data("event-type");
+            //var eventName = configurations.eventName;
 
-            if ((eventType || '') != '') {
-                $popup.trigger({
-                    type: eventType
-                });
+            if ($(this).data("popup-event") == true) {
+                if ((configurations.eventName || '') != '') {
+                    $popup.trigger({
+                        type: configurations.eventName
+                    });
+                }
             }
 
             hide();

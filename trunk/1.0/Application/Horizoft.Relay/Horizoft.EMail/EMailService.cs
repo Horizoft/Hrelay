@@ -13,21 +13,34 @@ namespace Horizoft.EMail
     public class EMailService
     {
         private int MAIL_SERVER_SMTP_TIMEOUT = 120000;
+        private string host = string.Empty;
+        private int port;
+        private string userName = string.Empty;
+        private string password = string.Empty;
 
-        public EMailService() { }
+        //public EMailService() { }
+
+        public EMailService(string _host, int? _port, string _userName, string _password)
+        {
+            host = _host;
+            port = _port ?? 25;
+            userName = _userName;
+            password = _password;
+        }
 
         public void SendMailViaSMTP(EMailStructure email)
         {
-            string host = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_HOST"];
-            string port = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_PORT"];
-            string userName = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_USERNAME"];
-            string password = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_PASSWORD"];
+            //string host = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_HOST"];
+            //string port = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_PORT"];
+            //string userName = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_USERNAME"];
+            //string password = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_SMTP_PASSWORD"];
 
             if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(userName)) return;
 
-            int port_result;
+            //int port_result;
 
-            SmtpClient mailService = new SmtpClient(host, (int.TryParse(port, out port_result) ? port_result : 25));
+            //SmtpClient mailService = new SmtpClient(host, (int.TryParse(port, out port_result) ? port_result : 25));
+            SmtpClient mailService = new SmtpClient(host, (port == 0) ? 25 : port);
             mailService.EnableSsl = true;
             mailService.DeliveryMethod = SmtpDeliveryMethod.Network;
             mailService.UseDefaultCredentials = false;
@@ -72,9 +85,9 @@ namespace Horizoft.EMail
 
         public void SendMailViaExchangeEWS(EMailStructure email)
         {
-            string host = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_EWS_HOST"];
-            string userName = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_EWS_USERNAME"];
-            string password = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_EWS_PASSWORD"];
+            //string host = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_EWS_HOST"];
+            //string userName = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_EWS_USERNAME"];
+            //string password = System.Configuration.ConfigurationManager.AppSettings["MAIL_SERVER_EWS_PASSWORD"];
 
             if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(userName)) return;
 
