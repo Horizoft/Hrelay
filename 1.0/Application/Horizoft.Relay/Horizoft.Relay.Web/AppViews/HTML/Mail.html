@@ -15,9 +15,9 @@
         }
 
 	</style>
-	<script type="text/javascript" src="/Scripts/jquery-1.10.2.js"></script>
+	<!--<script type="text/javascript" src="/Scripts/jquery-1.10.2.js"></script>-->
 	<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	<!--<script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>-->
     <script type="text/javascript" src="/Scripts/jquery-te-1.4.0.min.js"></script>
 	
     <script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.js"></script>
@@ -37,14 +37,13 @@
             $("#popup-warning").popup({ status: "init" });
             $("#popup-notification").popup({ status: "init" });
 
-            var mail = mailApi.GetFirst();
+            var api = mailApi.GetFirst();
 
-            // mail.errorStatus;
-            // mail.errorMessage;
+            if (api.error == undefined) {
+                var mail = api.data;
+                if ((mail || '') != '')
+                    $(".form-input").bindView(mail);
 
-            // if (!mai.errorStatus) {
-            if (mail.error == undefined) {
-                $(".form-input").bindView(mail);
                 $(".form-input-message").jqte();
             }
             else {
@@ -54,24 +53,21 @@
         })
 
         $(document).on("click", "[data-action='Mail-Save']", function () {
-            // var mail = $("#mail-input").retrieve(new DTMail());
-            // mail.message = $(".jqte_editor").html();
+            $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?", eventName: "onSaveMail" });
+        })
 
-            // if (mailApi.GetFirst())
-            //     mailApi.Update(mail);
-            // else
-            //     mailApi.Add(mail);
+        $(document).on("onSaveMail", "#popup-warning", function () {
+             var mail = $("#mail-input").retrieve(new DTMail());
+             mail.message = $(".jqte_editor").html();
 
-            // var n = 0;
-            //mailApi.Add(mail);
-
-            $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?" });
-            // $("#popup-notification").popup({ show: true, message: "Mail setting saved successfully." });
+             if (mail.id != '')
+                 mailApi.Update(mail);
+             else
+                 mailApi.Add(mail);
         })
 
         $(document).on("click", "[data-action='Mail-Reset']", function(){
             $("#popup-warning").popup({ show: true, message: "Do you want to reset mail setting?" });
-            // $("#popup-notification").popup({ show: true, message: "Mail setting reset successfully." });
         })
 
 
@@ -134,7 +130,7 @@
                     <div><br/></div>
                     <div data-field="host"></div>
                     <div class="form-command">
-                        <button class="command-green" data-event-type="Popup-Close">Close</button>
+                        <button class="command-green">Close</button>
                     </div>
                 </div>
             </div>
@@ -143,7 +139,7 @@
                     <div data-field="popup_message"></div>
                     <div><br/></div>
                     <div class="form-command">
-                        <button class="command-green" data-event-type="Popup-Yes">Yes</button>
+                        <button class="command-green" data-popup-event="true">Yes</button>
                         <button class="command-red">No</button>
                     </div>
                 </div>

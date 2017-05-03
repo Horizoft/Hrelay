@@ -19,14 +19,14 @@ namespace Horizoft.Relay.API
             try
             {
                 Monitor monitor = monitorRepository.GetFirst();
-                if (monitor != null)
+                //if (monitor != null)
                 {
                     return Ok(monitor);
                 }
-                else
-                {
-                    return StatusCode(HttpStatusCode.NotFound);
-                }
+                //else
+                //{
+                //    return StatusCode(HttpStatusCode.NotFound);
+                //}
             }
             catch (Exception ex)
             {
