@@ -6,7 +6,7 @@
 
 		var configurations = {
 			chart: {
-				renderTo: 'container',
+				renderTo: 'chart',
 				type: 'line',
 				borderRadius: 0,
 				plotBorderWidth: 3,
@@ -96,7 +96,7 @@
 			textBox.datepicker({
 				dateFormat: "yy-mm-dd",
 				showOn: "button",
-				buttonImage: "../images/calendar.gif",
+				buttonImage: "../../Images/calendar.gif",
 				buttonImageOnly: true
 			});
 
