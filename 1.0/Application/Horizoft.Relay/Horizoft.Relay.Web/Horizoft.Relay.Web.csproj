@@ -187,8 +187,9 @@
     <Content Include="AppViews\Home\Home.html" />
     <Content Include="AppViews\Home\Index.html" />
     <Content Include="AppViews\Home\LeftMenu.html" />
-    <Content Include="AppViews\HTML\Report.html" />
     <Content Include="AppViews\HTML\Home.html" />
+    <Content Include="AppViews\HTML\Report.html" />
+    <Content Include="AppViews\HTML\Home1.html" />
     <Content Include="AppViews\HTML\Host.html" />
     <Content Include="AppViews\HTML\Monitor.html" />
     <Content Include="AppViews\HTML\Mail.html" />

@@ -2,13 +2,13 @@
     $.fn.popup = function (configurations) {
         var $popup = $(this);
 
-        if ((configurations || '') == '') {
-            configurations.status = "";
-            configurations.show = false;
-        }
+        if (configurations == null) var configurations = {};
 
-        if ((configurations.status || '') == '') configurations.status = '';
-        if ((configurations.show || '') == '') configurations.show = false;
+        if (!configurations.hasOwnProperty("status"))
+            configurations.status = '';
+
+        if (!configurations.hasOwnProperty("show"))
+            configurations.show = false;
 
         if (configurations.status == "init") {
             var $overlay = $(document.createElement("div")).addClass("popup-overlay");

@@ -1,5 +1,5 @@
 ﻿(function ($) {
-	$.fn.dateReport = function () {
+	$.fn.dateReport = function (options) {
 		var _dateReport = $(this);
 		var dateOnFocus = "";
 		var dateOnChange = "";
@@ -182,6 +182,17 @@
 		});
 
 		addNewDate();
+
+		if (((options || '') != '') && options.hasOwnProperty("date")) {
+		    var date = options.date;
+
+		    //var temperatureReportApi = new TemperatureReportAPI();
+		    var data = temperatureReportApi.getAverageTemperatureData(date);
+
+		    configurations.series.push({});
+		    configurations.series[0] = data;
+		    var chart = new Highcharts.Chart(configurations);
+		}
 
 	}
 }(jQuery));
