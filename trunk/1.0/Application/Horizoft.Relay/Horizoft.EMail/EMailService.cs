@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -72,15 +75,18 @@ namespace Horizoft.EMail
             mail.BodyEncoding = email.BodyEncoding;
             mail.IsBodyHtml = email.IsBodyHTML;
 
+            ServicePointManager.ServerCertificateValidationCallback = delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+            { return true; };
+
             try
             {
                 mailService.Send(mail);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
         }
 
         public void SendMailViaExchangeEWS(EMailStructure email)
