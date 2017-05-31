@@ -35,10 +35,11 @@
             if (api.error == undefined) {
                 var monitor = api.data;
                 if ((monitor || '') != '')
-                    $(".form-input").bindView(monitor);
+                    $(".form-input").bindView(monitor);  
             }
             else {
                 $("#popup-notification").popup({ show: true, message: "Failed to load host setting." });
+                $(".command-green").prop('disabled', true);
             }
         })
 
@@ -92,14 +93,14 @@
 
 <body>
 	<div class="view-section-left">
-		<div class="view-section-left-head"></div>
+		<div class="view-section-left-head">HORIZOFT Relay</div>
 		<div class="view-section-left-container">
 			<div id="menu-left" class="menu-left">
 			</div>
 		</div>
 	</div><!--
 	--><div class="view-section-center">
-		<div class="view-section-center-head"></div>
+		<div class="view-section-center-head">Monitor</div>
 		<div class="view-section-center-container">
             <div class="card card-3">
                 <table id="monitor-item" class="form-input">
