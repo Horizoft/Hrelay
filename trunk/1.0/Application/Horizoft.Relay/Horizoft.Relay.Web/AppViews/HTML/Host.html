@@ -48,7 +48,7 @@
 	        }
 	        else {
 	            $("#popup-notification").popup({ show: true, message: "Failed to load host setting." });
-	            //$(".command-green").prop('disabled', true);
+	            $("#btn-disabled").prop('disabled', true);
 	        }
 	    })
 
@@ -150,7 +150,7 @@
                     <button class="command-red" data-action="Host-Reset">Reset</button>
                 </div>
                 <div class="form-command" style="float: right">
-                    <button class="command-green" data-action="Host-Save" >Save</button>
+                    <button id="btn-disabled" class="command-green" data-action="Host-Save" >Save</button>
                     <button class="command-red" data-action="Host-Cancel">Cancel</button>
                 </div>
             </div>
