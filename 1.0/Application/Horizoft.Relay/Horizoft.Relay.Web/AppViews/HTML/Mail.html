@@ -56,18 +56,48 @@
             $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?", eventName: "onSaveMail" });
         })
 
+        $(document).on("click", "[data-action='Mail-Reset']", function () {
+            $("#popup-warning").popup({ show: true, message: "Do you want to reset mail setting?", eventName: "onResetMail" });
+        })
+
         $(document).on("onSaveMail", "#popup-warning", function () {
              var mail = $("#mail-input").retrieve(new DTMail());
              mail.message = $(".jqte_editor").html();
 
-             if (mail.id != '')
-                 mailApi.Update(mail);
-             else
-                 mailApi.Add(mail);
+             if (mail.id != '') {
+                 var result = mailApi.Update(mail);
+
+                 if(result.error == undefined)
+                     $("#popup-notification").popup({ show: true, message: "Mail data saved successfully." });
+                 else
+                     $("#popup-notification").popup({ show: true, message: "Failed to save mail data." });
+
+             } else {
+                 var result = mailApi.Add(mail);
+
+                 if (result.error == undefined)
+                     $("#popup-notification").popup({ show: true, message: "Mail data saved successfully." });
+                 else
+                     $("#popup-notification").popup({ show: true, message: "Failed to save mail data." });
+             }
+                
         })
 
-        $(document).on("click", "[data-action='Mail-Reset']", function(){
-            $("#popup-warning").popup({ show: true, message: "Do you want to reset mail setting?" });
+        $(document).on("onResetMail", "#popup-warning", function () {
+            var mail = $("#mail-input").retrieve(new DTMail());
+            mail.id = 0;
+            mail.sender = "";
+            mail.recipients = "";
+            mail.subject = "";
+            mail.message = "";
+
+                var result = mailApi.Update(mail);
+
+                if (result.error == undefined)
+                    $("#popup-notification").popup({ show: true, message: "Mail data saved successfully." });
+                else
+                    $("#popup-notification").popup({ show: true, message: "Failed to reset mail data." });
+        
         })
 
 

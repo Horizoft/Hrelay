@@ -58,10 +58,43 @@
 	    $(document).on("onSaveHost", "#popup-warning", function () {
 	        var host = $("#host-item").retrieve(new DTHost());
 
-	        if (host.id != '')
-	            hostApi.Update(host);
+	        if (host.id != ''){
+	            var result = hostApi.Update(host);
+
+	            if(result == undefined)
+	                $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
+	            else
+	                $("#popup-notification").popup({ show: true, message: "Failed to save Host data." });
+	        }else{
+	            var result = hostApi.Add(host);
+
+	            if (result == undefined)
+	                $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
+	            else
+	                $("#popup-notification").popup({ show: true, message: "Failed to save Host data." });
+            }
+	            
+	    })
+
+	    $(document).on("click", "[data-action='Host-Reset']", function () {
+	        $("#popup-warning").popup({ show: true, message: "Do you want to reset host setting?", eventName: "onResetHost" });
+	    })
+
+	    $(document).on("onResetHost", "#popup-warning", function () {
+	        var host = $("#host-item").retrieve(new DTHost());
+	        host.uRL = "";
+	        host.protocal = "";
+	        host.port = 0;
+	        host.username = "";
+	        host.password = "";
+
+	        var result = hostApi.Update(host);
+
+	        if(result.error == undefined)
+	            $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
 	        else
-	            hostApi.Add(host);
+	            $("#popup-notification").popup({ show: true, message: "Failed to reset host data." });
+
 	    })
 
 
@@ -116,7 +149,7 @@
                     <button class="command-red" data-action="Host-Reset">Reset</button>
                 </div>
                 <div class="form-command" style="float: right">
-                    <button class="command-green" data-action="Host-Save">Save</button>
+                    <button class="command-green" data-action="Host-Save" >Save</button>
                     <button class="command-red" data-action="Host-Cancel">Cancel</button>
                 </div>
             </div>
