@@ -46,13 +46,45 @@
             $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?", eventName: "onSaveMonitor" });
         })
 
+        $(document).on("click", "[data-action='Monitor-Reset']", function () {
+            $("#popup-warning").popup({ show: true, message: "Do you want to Reset mail setting?", eventName: "onResetMonitor" });
+        })
+
         $(document).on("onSaveMonitor", "#popup-warning", function () {
             var monitor = $("#monitor-item").retrieve(new DTMonitor());
 
-            if (monitor.id != '')
-                monitorApi.Update(monitor);
+            if (monitor.id != '') {
+                var result = monitorApi.Update(monitor);
+
+                if (result.error == undefined) 
+                    $("#popup-notification").popup({ show: true, message: "Monitor data saved successfully." });
+                else
+                    $("#popup-notification").popup({ show: true, message: "Failed to save monitor data." });
+                
+            }
+            else {
+                var result = monitorApi.Add(monitor);
+
+                if (result.error == undefined)
+                    $("#popup-notification").popup({ show: true, message: "Monitor data saved successfully." });
+                else
+                    $("#popup-notification").popup({ show: true, message: "Failed to save monitor data." });
+
+            }
+                
+        })
+
+        $(document).on("onResetMonitor", "#popup-warning", function () {
+            var monitor = $("#monitor-item").retrieve(new DTMonitor());
+            monitor.logURL = "";
+            monitor.temperatureAlert = "";
+
+            var result = monitorApi.Update(monitor);
+
+            if (result.error == undefined)
+                $("#popup-notification").popup({ show: true, message: "Monitor data reset successfully." });
             else
-                monitorApi.Add(monitor);
+                $("#popup-notification").popup({ show: true, message: "Failed to reset monitor data." });
         })
 
 		</script>
