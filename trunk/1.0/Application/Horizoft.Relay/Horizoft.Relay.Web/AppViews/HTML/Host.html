@@ -62,15 +62,19 @@
 	        if (host.id != ''){
 	            var result = hostApi.Update(host);
 
-	            if(result == undefined)
+	            if (result.error == undefined) {
 	                $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
+	                $(".form-input").bindView(result.data);
+	            }
 	            else
 	                $("#popup-notification").popup({ show: true, message: "Failed to save Host data." });
 	        }else{
 	            var result = hostApi.Add(host);
 
-	            if (result == undefined)
+	            if (result.error == undefined) {
 	                $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
+	                $(".form-input").bindView(result.data);
+	            }
 	            else
 	                $("#popup-notification").popup({ show: true, message: "Failed to save Host data." });
             }
@@ -82,17 +86,25 @@
 	    })
 
 	    $(document).on("onResetHost", "#popup-warning", function () {
+	        var defualt_host = hostApi.GetFirst(); //Defualt row 
 	        var host = $("#host-item").retrieve(new DTHost());
-	        host.uRL = "";
-	        host.protocal = "";
-	        host.port = 0;
-	        host.username = "";
-	        host.password = "";
+	        //host.uRL = "";
+	        //host.protocal = "";
+	        //host.port = 0;
+	        //host.username = "";
+	        //host.password = "";
+	        host.uRL = defualt_host.data.uRL;
+	        host.protocal = defualt_host.data.protocal;
+	        host.port = defualt_host.data.port;
+	        host.username = defualt_host.data.username;
+	        host.password = defualt_host.data.password;
 
 	        var result = hostApi.Update(host);
 
-	        if(result.error == undefined)
+	        if(result.error == undefined){
 	            $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
+	            $(".form-input").bindView(result.data);
+	        }
 	        else
 	            $("#popup-notification").popup({ show: true, message: "Failed to reset host data." });
 
