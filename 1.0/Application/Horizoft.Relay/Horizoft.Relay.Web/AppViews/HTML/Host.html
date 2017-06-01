@@ -102,7 +102,7 @@
 	        var result = hostApi.Update(host);
 
 	        if(result.error == undefined){
-	            $("#popup-notification").popup({ show: true, message: "Host data saved successfully." });
+	            $("#popup-notification").popup({ show: true, message: "Host data reset successfully." });
 	            $(".form-input").bindView(result.data);
 	        }
 	        else
