@@ -44,7 +44,7 @@ namespace Horizoft.Relay.Monitoring
 		public static void Main(string[] args)
 		{
             MonitorRepository monitorDal = new MonitorRepository();
-            monitorDto = monitorDal.GetFirst();
+            monitorDto = monitorDal.GetLast();
 
             TemperatureData relayData = MonitorRelay(DateTime.Now);
 
@@ -84,7 +84,7 @@ namespace Horizoft.Relay.Monitoring
         private static void NotifyByMail(TemperatureData relayData)
         {
             HostRepository hostDal = new HostRepository();
-            Host hostDto = hostDal.GetFirst();
+            Host hostDto = hostDal.GetLast();
 
             if (hostDto == null) return;
             if (string.IsNullOrEmpty(hostDto.Protocal)) return;
@@ -108,7 +108,7 @@ namespace Horizoft.Relay.Monitoring
         private static EMailStructure ComposeMail(TemperatureData relayData)
         {
             MailRepository mailDal = new MailRepository();
-            Mail mailDto = mailDal.GetFirst();
+            Mail mailDto = mailDal.GetLast();
 
             EMailStructure mail = new EMailStructure();
 

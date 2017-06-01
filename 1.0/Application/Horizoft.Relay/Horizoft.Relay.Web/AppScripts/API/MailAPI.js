@@ -10,6 +10,13 @@
         return mail;
     }
 
+    this.GetLast = function () {
+        var action = "GetLast"
+        var type = "GET"
+        var monitor = CRUD(monitor, this.url + action, type);
+        return monitor;
+    }
+
     this.Add = function (mail) {
         var action = "Add"
         var type = "POST"

@@ -34,6 +34,27 @@ namespace Horizoft.Relay.API
             }
         }
 
+        [HttpGet]
+        public IHttpActionResult GetLast()
+        {
+            try
+            {
+                Monitor monitor = monitorRepository.GetLast();
+                //if (monitor != null)
+                {
+                    return Ok(monitor);
+                }
+                //else
+                //{
+                //    return StatusCode(HttpStatusCode.NotFound);
+                //}
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
         public IHttpActionResult Add(Monitor monitor)
         {

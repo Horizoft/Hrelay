@@ -34,6 +34,27 @@ namespace Horizoft.Relay.API
             }
         }
 
+        [HttpGet]
+        public IHttpActionResult GetLast()
+        {
+            try
+            {
+                Host host = hostRepository.GetLast();
+                //if (host != null)
+                {
+                    return Ok(host);
+                }
+                //else
+                //{
+                //    return StatusCode(HttpStatusCode.NotFound);
+                //}
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
         public IHttpActionResult Add(Host host)
         {

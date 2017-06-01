@@ -15,6 +15,11 @@ namespace Horizoft.Relay.DAL
         public MonitorRepository(){}
         public Monitor GetFirst()
         {
+            return entities.Monitors.OrderBy(t => t.Id).FirstOrDefault();
+        }
+
+        public Monitor GetLast()
+        {
             return entities.Monitors.OrderByDescending(t => t.Id).FirstOrDefault();
         }
 

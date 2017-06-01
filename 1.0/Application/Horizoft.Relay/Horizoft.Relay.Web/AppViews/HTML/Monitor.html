@@ -30,7 +30,7 @@
             $("#popup-warning").popup({ status: "init" });
             $("#popup-notification").popup({ status: "init" });
 
-            var api = monitorApi.GetFirst();
+            var api = monitorApi.GetLast();
 
             if (api.error == undefined) {
                 var monitor = api.data;
@@ -57,17 +57,20 @@
             if (monitor.id != '') {
                 var result = monitorApi.Update(monitor);
 
-                if (result.error == undefined) 
+                if (result.error == undefined){
                     $("#popup-notification").popup({ show: true, message: "Monitor data saved successfully." });
+                    $(".form-input").bindView(result.data);
+                } 
                 else
                     $("#popup-notification").popup({ show: true, message: "Failed to save monitor data." });
-                
             }
             else {
                 var result = monitorApi.Add(monitor);
 
-                if (result.error == undefined)
+                if (result.error == undefined){
                     $("#popup-notification").popup({ show: true, message: "Monitor data saved successfully." });
+                    $(".form-input").bindView(result.data);
+                }
                 else
                     $("#popup-notification").popup({ show: true, message: "Failed to save monitor data." });
 
@@ -82,8 +85,10 @@
 
             var result = monitorApi.Update(monitor);
 
-            if (result.error == undefined)
+            if (result.error == undefined){
                 $("#popup-notification").popup({ show: true, message: "Monitor data reset successfully." });
+                $(".form-input").bindView(result.data);
+            }
             else
                 $("#popup-notification").popup({ show: true, message: "Failed to reset monitor data." });
         })

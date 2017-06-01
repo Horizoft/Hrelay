@@ -10,6 +10,13 @@
         return host;
     }
 
+    this.GetLast = function () {
+        var action = "GetLast"
+        var type = "GET"
+        var monitor = CRUD(monitor, this.url + action, type);
+        return monitor;
+    }
+
     this.Add = function (host) {
         var action = "Add"
         var type = "POST"
