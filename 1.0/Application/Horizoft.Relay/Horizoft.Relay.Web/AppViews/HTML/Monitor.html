@@ -79,7 +79,7 @@
         })
 
         $(document).on("onResetMonitor", "#popup-warning", function () {
-            var defualt_monitor = monitorApi.GetFirst();
+            var defualt_monitor = monitorApi.GetFirst(); //Defualt row 
             var monitor = $("#monitor-item").retrieve(new DTMonitor());
             monitor.logURL = defualt_monitor.data.logURL;
             monitor.temperatureAlert = defualt_monitor.data.temperatureAlert;
