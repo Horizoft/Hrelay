@@ -47,10 +47,6 @@
             $("#popup-warning").popup({ show: true, message: "Do you want to change mail setting?", eventName: "onSaveMonitor" });
         })
 
-        $(document).on("click", "[data-action='Monitor-Reset']", function () {
-            $("#popup-warning").popup({ show: true, message: "Do you want to Reset mail setting?", eventName: "onResetMonitor" });
-        })
-
         $(document).on("onSaveMonitor", "#popup-warning", function () {
             var monitor = $("#monitor-item").retrieve(new DTMonitor());
 
@@ -78,10 +74,15 @@
                 
         })
 
+        $(document).on("click", "[data-action='Monitor-Reset']", function () {
+            $("#popup-warning").popup({ show: true, message: "Do you want to Reset mail setting?", eventName: "onResetMonitor" });
+        })
+
         $(document).on("onResetMonitor", "#popup-warning", function () {
+            var defualt_monitor = monitorApi.GetFirst();
             var monitor = $("#monitor-item").retrieve(new DTMonitor());
-            monitor.logURL = "";
-            monitor.temperatureAlert = "";
+            monitor.logURL = defualt_monitor.data.logURL;
+            monitor.temperatureAlert = defualt_monitor.data.temperatureAlert;
 
             var result = monitorApi.Update(monitor);
 
