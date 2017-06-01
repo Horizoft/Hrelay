@@ -92,7 +92,7 @@ namespace Horizoft.Relay.Monitoring
             EMailStructure mail = ComposeMail(relayData);
             EMailService emailService = new EMailService(hostDto.URL, hostDto.Port, hostDto.UserName, hostDto.Password);
 
-            switch (hostDto.Protocal.ToUpper())
+            switch (hostDto.Protocal.Trim().ToUpper())
             {
                 case "SMTP":
                     emailService.SendMailViaSMTP(mail);
