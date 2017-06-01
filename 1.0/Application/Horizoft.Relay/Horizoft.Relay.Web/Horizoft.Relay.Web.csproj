@@ -230,7 +230,8 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.datereport.js" />
     <Content Include="AppScripts\Utilities\horizoft.jquery.popup.js" />
-    <None Include="Properties\PublishProfiles\Horizoft.Relay.Web.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\Horizoft.Relay.File.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\editor.js" />
     <Content Include="Scripts\exporting.js" />
