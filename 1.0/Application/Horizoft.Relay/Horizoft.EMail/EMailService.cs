@@ -57,7 +57,8 @@ namespace Horizoft.EMail
             {
                 foreach (string recipient in email.Recipients)
                 {
-                    mail.To.Add(new MailAddress(recipient));
+                    if (!string.IsNullOrEmpty(recipient))
+                        mail.To.Add(new MailAddress(recipient));
                 }
             }
 
