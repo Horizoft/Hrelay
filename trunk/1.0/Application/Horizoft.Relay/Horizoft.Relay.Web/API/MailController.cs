@@ -36,6 +36,29 @@ namespace Horizoft.Relay.API
 
         }
 
+        [HttpGet]
+        public IHttpActionResult GetLast()
+        {
+            try
+            {
+                Mail mail = mailRepository.GetLast();
+                //if (mail != null)
+                {
+                    return Ok(mail);
+                }
+                //else
+                //{
+                //    return StatusCode(HttpStatusCode.NotFound);
+                //}
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
+
+        }
+
         [HttpPost]
         public IHttpActionResult Add(Mail mail)
         {

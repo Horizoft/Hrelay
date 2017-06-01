@@ -37,7 +37,7 @@
             $("#popup-warning").popup({ status: "init" });
             $("#popup-notification").popup({ status: "init" });
 
-            var api = mailApi.GetFirst();
+            var api = mailApi.GetLast();
 
             if (api.error == undefined) {
                 var mail = api.data;

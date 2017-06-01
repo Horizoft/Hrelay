@@ -14,7 +14,12 @@ namespace Horizoft.Relay.DAL
         public HostRepository() { }
         public Host GetFirst()
         {
-                return entities.Hosts.OrderByDescending(t => t.Id).FirstOrDefault();
+                return entities.Hosts.OrderBy(t => t.Id).FirstOrDefault();
+        }
+
+        public Host GetLast()
+        {
+            return entities.Hosts.OrderByDescending(t => t.Id).FirstOrDefault();
         }
 
         public Host Add(Host host)
