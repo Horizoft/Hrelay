@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="/scripts/jquery-1.7.2.min.js"></script>
+    <script>
+
+        var ax;
+
+        function ajaxRequestFinished() {
+            var e;
+            switch (ax.readyState) {
+                case 4:
+                    updateStatus();
+                    initclk();
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        function ajaxRequest(filename) {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                ax = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                ax = new XMLHttpRequest();
+            }
+            if (ax) {
+                ax.onreadystatechange = ajaxRequestFinished;
+                try {
+                    ax.open("GET", filename, true);
+                    ax.send(null);
+                } catch (err) {}
+            }
+        }
+
+        $(document).ready(function(){
+            ajaxRequest("http://controlair.bepetrothai.com/state.xml");
+
+            var n=0;
+        })
+
+    </script>
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
