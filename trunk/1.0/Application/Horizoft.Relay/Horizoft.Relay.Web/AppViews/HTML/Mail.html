@@ -104,7 +104,7 @@
 
                 var result = mailApi.Update(mail);
 
-                if (result.error == undefined) {
+                if (result.error == undefined) {    
                     $("#popup-notification").popup({ show: true, message: "Mail data reset successfully." });
                     $(".form-input").bindView(result.data);
                 }
