@@ -107,6 +107,9 @@
                 if (result.error == undefined) {    
                     $("#popup-notification").popup({ show: true, message: "Mail data reset successfully." });
                     $(".form-input").bindView(result.data);
+               
+                   // $(".form-input-message").html();
+                    $(".form-input-message").parent().parent().find(".jqte_editor").html(result.data.message)
                 }
                 else
                     $("#popup-notification").popup({ show: true, message: "Failed to reset mail data." });
