@@ -44,6 +44,77 @@
             /*border: 1px solid rgba(0, 0, 0, 0.2);*/
         }
 
+        .dashboard-row {
+            vertical-align: middle;
+        }
+
+        .dashboard-number {
+            font-size: 100px;
+            font-weight: 600;
+        }
+
+        .dashboard-number-light {
+            font-size: 100px;
+            font-weight: 200;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .dashboard-temperature {
+            display: inline-block;
+            margin: 0px 20px;
+        }
+
+        .dashboard-datetime {
+            display: inline-block;
+            margin: 0px 50px;
+        }
+
+        .dashboard-datetime-day,
+        .dashboard-datetime-date,
+        .dashboard-datetime-time {
+            font-size: 24px;
+            text-align: right;
+        }
+
+        .dashboard-datetime-day {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .dashboard-datetime-date {
+            margin-bottom: 20px;
+        }
+
+        .dashboard-datetime-time {
+            font-size: 50px;
+        }
+
+        .dashboard-label {
+            font-size: 18px;
+        }
+
+        .dashboard-appliance {
+            display: inline-block;
+        }
+
+        .dashboard-appliance-icon {
+            /*display: inline-block;*/
+            height: 150px;
+            width: 150px;
+            margin: 5px;
+        }
+
+        .dashboard-appliance-icon[data-status='0'] {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .dashboard-appliance-icon[data-status='1'] {
+            background-color: rgba(0, 128, 0, 0.8);
+        }
+
+        .dashboard-label {
+            height: 50px;
+        }
+
 	</style>
 	<!--<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>-->
     <script type="text/javascript" src="/scripts/jquery-1.7.2.min.js"></script>
@@ -56,14 +127,16 @@
     <script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.string.js"></script>
 	<script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
-
+    <script type="text/javascript" src="/AppScripts/Utilities/Utilities.API.js"></script>
     <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
     <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.datereport.js"></script>
+    <script type="text/javascript" src="/AppScripts/API/RelayAPI.js"></script>
     <script type="text/javascript" src="/AppScripts/API/TemperatureReportAPI.js"></script>
 
 	<script>
 
-	    var temperatureReportApi = new TemperatureReportAPI();
+        //var temperatureReportApi = new TemperatureReportAPI();
+        var relayApi = new RelayAPI();
 
 	    $(document).ready(function () {
 	        $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
@@ -74,7 +147,19 @@
 	    })
 
 	    function showData() {
-	        $("#report").dateReport({ date: "2017-04-07" });
+	        //$("#report").dateReport({ date: "2017-04-07" });
+	        var api = relayApi.GetCurrentState();
+
+	        if (api.error == undefined) {
+	            var iotData = api.data;
+	            if ((iotData || '') != '')
+	                $(".form-output").bindView(iotData);
+	        }
+
+            $(".dashboard-appliance-icon input[type='text']").each(function(){
+                $(this).parent().attr("data-status", ($(this).val() == "") ? 0 : 1);
+            });
+
 	    }
 
 		</script>
@@ -90,8 +175,7 @@
 	</div><!--
 	--><div class="view-section-center">
 		<div class="view-section-center-head">Home</div>
-		<div id="report" class="view-section-center-container">
-            <!--<div class="card card-3">-->
+		<!--<div id="report" class="view-section-center-container">
             <div class="report-input">
                 <ul id="dateList">
                     <li>
@@ -100,7 +184,90 @@
                 </ul>
             </div>
             <div id="chart" class="report-output"></div>
-            <!--</div>-->
+        </div>-->
+        <div class="view-section-center-container form-output">
+
+            <div class="dashboard-row">
+                <div class="dashboard-temperature">
+                    <div>
+                        <div><span class="dashboard-number" data-field="t1"></span><span class="dashboard-number-light">&#176;C</span></div>
+                        <div class="dashboard-label">Temperature Sensor 1</div>
+                    </div>
+                    <!--<div>
+                        <div><span class="dashboard-number" data-field="t2"></span><span class="dashboard-number-light">&#176;C</span></div>
+                        <div class="dashboard-label">Temperature Sensor 2</div>
+                    </div>-->
+                </div>
+                <div class="dashboard-datetime">
+                    <div class="dashboard-datetime-day" data-field="currentDay"></div>
+                    <div class="dashboard-datetime-date" data-field="currentDate"></div>
+                    <div class="dashboard-datetime-time" data-field="currentTime"></div>
+                </div>
+            </div>
+            <div class="dashboard-row">
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r1" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r1Nmae">Relay 1</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r2" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r2Nmae">Relay 2</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r3" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r3Nmae">Relay 3</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r4" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r4Nmae">Relay 4</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r5" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r5Nmae">Relay 5</div>
+                </div>
+            </div>
+            <div class="dashboard-row">
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r6" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r6Nmae">Relay 6</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r7" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r7Nmae">Relay 7</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r8" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r8Nmae">Relay 8</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r9" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r9Nmae">Relay 9</div>
+                </div>
+                <div class="dashboard-appliance">
+                    <div class="dashboard-appliance-icon" data-status="0">
+                        <input type="text" data-field="r10" hidden />
+                    </div>
+                    <div class="dashboard-label" data-field="r10Nmae">Relay 10</div>
+                </div>
+            </div>
         </div>
 	</div>
 </body>
