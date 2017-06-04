@@ -49,8 +49,18 @@ function ajaxRequest(filename) {
         ax.onreadystatechange = ajaxRequestFinished;
         try {
             ax.open("GET", filename, true);
+            ax.setRequestHeader('Access-Control-Allow-Headers', '*');
+            ax.setRequestHeader('Content-type', 'application/xml');
+            ax.setRequestHeader('Access-Control-Allow-Origin', '*');
+            ax.setRequestHeader('Access-Control-Allow-Credentials','true')
+            //ax.setRequestHeader("Access-Control-Allow-Origin: *");
+            //ax.setRequestHeader("Access-Control-Allow-Credentials: true");
+            //ax.setRequestHeader("Access-Control-Allow-Methods: GET");
+            //ax.setRequestHeader("Content-Type: application/xml");
             ax.send(null);
-        } catch (err) {}
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
