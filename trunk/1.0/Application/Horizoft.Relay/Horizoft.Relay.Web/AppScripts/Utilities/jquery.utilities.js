@@ -7,6 +7,24 @@
 		}).responseText;
 	}
 
+	$.getXml = function (url) {
+	    var request = $.ajax({
+	        type: "GET",
+	        async: false,
+	        url: url,
+	        data: [],
+	        contentType: "application/xml; charset=utf-8",
+	        dataType: "xml"
+	    });
+
+	    var response = request.complete();
+	    var responseText = response.responseText;
+	    var xml = $.parseXML(responseText);
+	    var $xml = $(xml);
+
+	    return $xml;
+	}
+
 	$.getJsonData = function (url) {
 		var request = $.ajax({
 			type: "GET",
@@ -28,8 +46,9 @@
 	    if ($elements.length == 0) return;
 
 	    for (var n = 0; n < $elements.length; n++) {
-	        var value = object[$elements.eq(n).data("field")];
+			if (object[$elements.eq(n).data("field")] == undefined) continue;
 
+	        var value = object[$elements.eq(n).data("field")];
 	        var dataType = $elements.eq(n).data("type");
 	        //if (((value || '') != '') && value.toString().isDate()) value = value.toString().toDate();
 	        if (($elements.eq(n).data("type") == "number") || ($elements.eq(n).data("type") == "money"))
