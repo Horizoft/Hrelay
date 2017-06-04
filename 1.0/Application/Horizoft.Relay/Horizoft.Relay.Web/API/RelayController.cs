@@ -1,6 +1,7 @@
 ﻿using Horizoft.Relay.DTO;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,7 +17,8 @@ namespace Horizoft.Relay.Web.API
         [HttpGet]
         public IHttpActionResult GetCurrentState()
         {
-            string url = "http://controlair.bepetrothai.com/state.xml";
+            //string url = "http://controlair.bepetrothai.com/state.xml";
+            string url = ConfigurationManager.AppSettings["URL"] + "/state.xml";
 
             try
             {
