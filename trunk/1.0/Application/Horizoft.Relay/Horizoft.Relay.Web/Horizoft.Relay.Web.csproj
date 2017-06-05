@@ -129,6 +129,7 @@
     <Compile Include="API\HostController.cs" />
     <Compile Include="API\MailController.cs" />
     <Compile Include="API\MonitorController.cs" />
+    <Compile Include="API\RelayController.cs" />
     <Compile Include="API\TemperatureReportController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
