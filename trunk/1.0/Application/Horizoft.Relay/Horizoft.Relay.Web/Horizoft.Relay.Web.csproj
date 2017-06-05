@@ -176,6 +176,7 @@
     <Content Include="AppScripts\API\HostAPI.js" />
     <Content Include="AppScripts\API\MailAPI.js" />
     <Content Include="AppScripts\API\MonitorAPI.js" />
+    <Content Include="AppScripts\API\RelayAPI.js" />
     <Content Include="AppScripts\API\TemperatureReportAPI.js" />
     <Content Include="AppScripts\DTO\DTHost.js" />
     <Content Include="AppScripts\DTO\DTMail.js" />
@@ -194,9 +195,11 @@
     <Content Include="AppViews\HTML\Host.html" />
     <Content Include="AppViews\HTML\Monitor.html" />
     <Content Include="AppViews\HTML\Mail.html" />
+    <Content Include="AppViews\Relay\Dashboard.html" />
     <Content Include="AppViews\Relay\index.html" />
     <Content Include="AppViews\Relay\script1.js" />
     <Content Include="AppViews\Relay\script2.js" />
+    <Content Include="AppViews\Relay\state.xml" />
     <Content Include="AppViews\Relay\styleSheet1.css" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
