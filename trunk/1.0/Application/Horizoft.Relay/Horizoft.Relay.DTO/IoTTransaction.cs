@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Horizoft.Relay.DTO
 {
-    public class IoTData
+    public class IoTTransaction
     {
         public int I1 { get; set; }
         public int I2 { get; set; }
@@ -39,7 +39,7 @@ namespace Horizoft.Relay.DTO
         public string CurrentDate { get; set; }
         public string CurrentTime { get; set; }
 
-        public IoTData() { }
+        public IoTTransaction() { }
 
     }
 }
