@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/Styles/page-input.css">
     <link rel="stylesheet" href="/Styles/popup.css">
 	<style>
-
+        #numberOnly::-ms-clear {
+         display: none;
+        }
 	</style>
 
 	<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
@@ -41,6 +43,24 @@
                 $("#popup-notification").popup({ show: true, message: "Failed to load host setting." });
                 $("#btn-disabled").prop('disabled', true);
             }
+
+                //Textbox Number Only
+                $("#numberOnly").keydown(function (e) {
+                    // Allow: backspace, delete, tab, escape, enter and .
+                    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                        // Allow: Ctrl+A, Command+A
+                        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                        // Allow: home, end, left, right, down, up
+                        (e.keyCode >= 35 && e.keyCode <= 40)) {
+                        // let it happen, don't do anything
+                        return;
+                    }
+                    // Ensure that it is a number and stop the keypress
+                    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                        e.preventDefault();
+                    }
+                });
+
         })
 
         $(document).on("click", "[data-action='Monitor-Save']", function () {
@@ -94,6 +114,26 @@
                 $("#popup-notification").popup({ show: true, message: "Failed to reset monitor data." });
         })
 
+        function IsNumeric(e) {
+            //Textbox Number Only
+            $("#numberOnly").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                    // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                    // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                    // let it happen, don't do anything
+                    return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+
+        }
+
 		</script>
 </head>
 
@@ -124,7 +164,8 @@
                         </tr>
                         <tr>
                             <td>Temperature Alert</td>
-                            <td><input type="text" data-field="temperatureAlert" /></td>
+                            <td><input id="numberOnly" type="number" <!--onkeypress="return IsNumeric(event);-->" data-field="temperatureAlert" /></td>
+                            <!--<td><input type="text" data-field="temperatureAlert" /></td>-->
                         </tr>
                     </tbody>
                 </table>
