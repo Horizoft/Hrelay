@@ -201,18 +201,22 @@
 	        $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
 	        //$("#report").dateReport({ date: "2017-04-07" });
 
-	        setInterval(showData, 3000);
+	        setInterval(updateIoTTransaction, 3000);
 
 	    })
 
-	    function showData() {
+        function getIoTReference(){
+            
+        }
+
+	    function updateIoTTransaction() {
 	        //$("#report").dateReport({ date: "2017-04-07" });
 	        var api = relayApi.GetCurrentState();
 
 	        if (api.error == undefined) {
-	            var iotData = api.data;
-	            if ((iotData || '') != '')
-	                $(".form-output").bindView(iotData);
+	            var iotTrs = api.data;
+	            if ((iotTrs || '') != '')
+	                $(".form-output").bindView(iotTrs);
 	        }
 
             $(".dashboard-appliance-icon input[type='text']").each(function(){
