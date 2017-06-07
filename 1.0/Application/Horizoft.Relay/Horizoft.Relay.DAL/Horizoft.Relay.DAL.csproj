@@ -45,9 +45,13 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HostRepository.cs" />
+    <Compile Include="IoTReferenceParser.cs" />
     <Compile Include="MailRepository.cs" />
     <Compile Include="MonitorRepository.cs" />
     <Compile Include="TemperatureDataRepository.cs" />
