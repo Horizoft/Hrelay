@@ -214,7 +214,6 @@
     <Content Include="Images\edit.png" />
     <Content Include="Images\Freez_blue.png" />
     <Content Include="Images\Freez_green.png" />
-    <Content Include="Images\H4.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
