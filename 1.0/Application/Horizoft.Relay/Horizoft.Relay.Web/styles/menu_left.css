@@ -35,10 +35,10 @@
         color: rgba(0, 0, 0, 0.3);
     }
 
-        .menu-left li.header {
-            font-weight: bold;
-            font-size: 20px;
-        }
+    .menu-left li.header {
+        font-weight: bold;
+        font-size: 20px;
+    }
 
     .menu-left > ul > li {
         /*font-weight: bold;*/

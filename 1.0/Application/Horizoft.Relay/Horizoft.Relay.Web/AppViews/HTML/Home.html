@@ -47,9 +47,9 @@
         .dashboard-row-block {
             display: table;
             margin: 0 auto;
-            width: 800px;
+            /*width: 800px;*/ 
             height: 320px;
-            background: rgb(0, 114, 181);
+            /*background: rgb(0, 114, 181);*/ 
         }
 
         .dashboard-row-top {
@@ -57,7 +57,9 @@
             vertical-align: middle;
             padding: 15px;
             text-align: center;
-            
+           
+            margin-top: 60px;
+            background: rgb(24, 134, 197);
         }
 
         .dashboard-row-middle {
@@ -101,7 +103,7 @@
             display: inline-block;
             /*margin: 0px 50px;*/
             margin-left: 100px;
-            color: rgba(54, 54, 54, 0.48);
+            color: rgba(163, 212, 240, 1);
             outline: none;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -123,15 +125,16 @@
         }
 
         .dashboard-datetime-time {
-            font-size: 40px;
-            color:rgba(54, 54, 54, 0.73);
+            font-size: 30px;
+           
         }
 
         .dashboard-label {
             font-size: 12px;
             font-style: normal;
             color: rgba(53, 91, 114, 1);
-            padding: 20px;
+            
+            /*padding: 20px;*/
         }
 
         .dashboard-label-temp {
@@ -160,19 +163,19 @@
             filter: alpha(opacity=50);
         }
 
-            .dashboard-appliance-icon[data-status='0'] {
-                background-image: url('../../Images/Freez_blue.png');
-                /*background-color: rgba(0, 0, 0, 0.5);*/
-                border-radius: 3px;
-                box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);
-            }
+         .dashboard-appliance-icon[data-status='0'] {
+             background-image: url('../../Images/Freez_blue.png');
+             /*background-color: rgba(0, 0, 0, 0.5);*/
+            
+             box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);
+         }
 
-            .dashboard-appliance-icon[data-status='1'] {
-                /* background-color: rgba(0, 128, 0, 0.8);*/
-                background-image: url('../../Images/Freez_green.png');
-                border-radius: 3px;
-                box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);
-            }
+        .dashboard-appliance-icon[data-status='1'] {
+             /* background-color: rgba(0, 128, 0, 0.8);*/
+             background-image: url('../../Images/Freez_green.png');
+           
+             box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);
+         }
 
 	</style>
 	<!--<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>-->
@@ -234,6 +237,7 @@
         <div class="view-section-left-head">
             <div class="img-H">
                 <img src="../../Images/H4.png" alt="relay"/>
+                <div class="view-section-left-head-name">Relay</div>
             </div>
 
         </div>
