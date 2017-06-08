@@ -35,6 +35,10 @@
 .view-section-left-container {
     overflow: auto;
     padding: 0px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
 .view-section-center {
