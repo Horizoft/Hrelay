@@ -209,7 +209,24 @@
 	    })
 
         function getIoTReference(){
+            var api = relayApi.GetReference();
 
+            if (api.error == undefined) {
+                var iotRef = api.data;
+                if ((iotRef || '') != '')
+                    $(".form-output").bindView(iotRef);
+
+                $(".dashboard-appliance").each(function () {
+                    //$(this).parent().attr("data-status", ($(this).val() == "") ? 0 : 1);
+                    //$(this).attr("operter-status", ($(this).val() == "") ? 0 : 1);
+
+                    //$(this).children().attr("data-field", ($(this).children().val() == true) ? $(this).children().css("display", "none") : $(this).children().css("display", "inline-block"));
+                    //var xx = $(this).children().attr("data-field").val();
+
+                    $(this).children().find("[data-field='isRelay5Operate']").css("display", "none");
+              
+                });
+            }
         }
 
 	    function updateIoTTransaction() {
@@ -222,7 +239,7 @@
 	                $(".form-output").bindView(iotTrs);
 	        }
 
-            $(".dashboard-appliance-icon input[type='text']").each(function(){
+	        $(".dashboard-appliance").each(function () {
                 $(this).parent().attr("data-status", ($(this).val() == "") ? 0 : 1);
             });
 
@@ -283,11 +300,11 @@
                             <div class="dashboard-status">NOW</div>
                             <div>
                                 <div><span class="dashboard-number" data-field="t1"></span><span class="dashboard-number-light">&#176;C</span></div>
-                                <div class="dashboard-label-temp">Temperature Sensor 1</div>
+                                <div class="dashboard-label-temp" data-field="sensor1Name"></div>
                             </div>
                             <!--<div>
                                 <div><span class="dashboard-number" data-field="t2"></span><span class="dashboard-number-light">&#176;C</span></div>
-                                <div class="dashboard-label">Temperature Sensor 2</div>
+                                <div class="dashboard-label" data-field="sensor2Name"></div>
                             </div>-->
                         </div>
                         <div class="dashboard-datetime">
@@ -303,31 +320,32 @@
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r1" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r1Nmae">Relay 1</div>
+                        <div class="dashboard-label" data-field="relay1Name">Relay 1</div>         
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r2" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r2Nmae">Relay 2</div>
+                        <div class="dashboard-label" data-field="relay2Name">Relay 2</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r3" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r3Nmae">Relay 3</div>
+                        <div class="dashboard-label" data-field="relay3Name">Relay 3</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="1">
                             <input type="text" data-field="r4" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r4Nmae">Relay 4</div>
+                        <div class="dashboard-label" data-field="relay4Name">Relay 4</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r5" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r5Nmae">Relay 5</div>
+                        <div class="dashboard-label" data-field="relay5Name">Relay 5</div>
+                        <input type="hidden" data-field="isRelay5Operate"  />
                     </div>
                 </div>
                 <div class="dashboard-row-low">
@@ -335,31 +353,31 @@
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r6" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r6Nmae">Relay 6</div>
+                        <div class="dashboard-label" data-field="relay6Name">Relay 6</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r7" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r7Nmae">Relay 7</div>
+                        <div class="dashboard-label" data-field="relay7Name">Relay 7</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r8" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r8Nmae">Relay 8</div>
+                        <div class="dashboard-label" data-field="relay8Name">Relay 8</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r9" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r9Nmae">Relay 9</div>
+                        <div class="dashboard-label" data-field="relay9Name">Relay 9</div>
                     </div>
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r10" hidden />
                         </div>
-                        <div class="dashboard-label" data-field="r10Nmae">Relay 10</div>
+                        <div class="dashboard-label" data-field="relay10Name">Relay 10</div>
                     </div>
                 </div>
             </div>
