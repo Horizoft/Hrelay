@@ -57,8 +57,8 @@
     font-weight: 400;
     /*Edit shadow head nav*/
     box-shadow: 3px 1px 10px rgba(37,37,37,0.66);
-    position:absolute;
-    width:100%;
+    position:static;
+    /*width:87%;*/
 
 }
 
@@ -69,7 +69,7 @@
     /*padding: 50px;*/
     background: #f5f5f5;
     text-align: center;
-    margin-top:60px;
+    /*margin-top:60px;*/
 }
 
 .card {
