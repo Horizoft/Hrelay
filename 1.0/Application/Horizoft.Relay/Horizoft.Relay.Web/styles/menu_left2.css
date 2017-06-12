@@ -1,6 +1,6 @@
 ﻿.menu-left {
 	height: 100vh;
-	font-size: 14px;
+	font-size: 12px;
 	/*background: #5a5a59;
 	color: #ffffff;		*/
 }
@@ -41,17 +41,26 @@
 
 .menu-left li[data-menu-item='true']:hover {
 	/*background: rgba(245, 245, 245, 0.8);*/
+    
 }
 
 .menu-left a:visited {text-decoration: none} 
-.menu-left a:active {text-decoration: none;} 
+.menu-left a:active {
+    text-decoration: none;
+    font-weight:bold;
+
+} 
 
 .menu-left a:hover {
 	/*color: rgba(247, 165, 0, 1);*/
 	/*color: rgba(36, 124, 168, 1);*/
 	/*color: rgba(23, 97, 140, 1);*/
 	
-    font-size: bold;
+    font-weight: bold;
+    color:white;
+
+
+   
 }
 
 
@@ -63,7 +72,7 @@
 .menu-left table {
     width: 100%;
 }
-
+/*setting*/
 .menu-left td {
 	font-weight: normal;
     color: rgba(0, 0, 0, 0.7);
@@ -79,12 +88,13 @@
 
 .menu-left td[data-menu-level='2'] {
     padding-left: 40px;
+   
 }
 
 .menu-left td[data-menu-item=true]:hover {
     /*background: rgba(255, 110, 65, 0.4);*/
     background: rgba(50, 158, 221, 1);
-	font-size: bold;
+	font-weight: bold;
 }
 
 /*.menu-left-first,
@@ -99,4 +109,6 @@
 .menu-left-second {
     padding-left: 40px;
 }*/
-		
+.td:active{
+    color:white;
+}	
