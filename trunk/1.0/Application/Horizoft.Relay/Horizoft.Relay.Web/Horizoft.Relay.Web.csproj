@@ -178,6 +178,12 @@
     <Content Include="AppScripts\API\MonitorAPI.js" />
     <Content Include="AppScripts\API\RelayAPI.js" />
     <Content Include="AppScripts\API\TemperatureReportAPI.js" />
+    <Content Include="AppScripts\Controllers\Home.js" />
+    <Content Include="AppScripts\Controllers\Home2.js" />
+    <Content Include="AppScripts\Controllers\Host.js" />
+    <Content Include="AppScripts\Controllers\Mail.js" />
+    <Content Include="AppScripts\Controllers\Monitor.js" />
+    <Content Include="AppScripts\Controllers\Report.js" />
     <Content Include="AppScripts\DTO\DTHost.js" />
     <Content Include="AppScripts\DTO\DTMail.js" />
     <Content Include="AppScripts\DTO\DTMonitor.js" />
@@ -185,11 +191,13 @@
     <Content Include="AppScripts\Utilities\horizoft.jquery.webapi.js" />
     <Content Include="AppScripts\Utilities\jquery.utilities.js" />
     <Content Include="AppScripts\Utilities\jquery.utilities.string.js" />
+    <Content Include="AppScripts\Utilities\menu.js" />
     <Content Include="AppScripts\Utilities\Utilities.API.js" />
     <Content Include="AppViews\Home\Home.html" />
     <Content Include="AppViews\Home\Index.html" />
     <Content Include="AppViews\Home\LeftMenu.html" />
     <Content Include="AppViews\HTML\Home.html" />
+    <Content Include="AppViews\HTML\Home2.html" />
     <Content Include="AppViews\HTML\Report.html" />
     <Content Include="AppViews\HTML\Home1.html" />
     <Content Include="AppViews\HTML\Host.html" />
@@ -286,6 +294,8 @@
     <Content Include="Scripts\ui\jquery.ui.tabs.js" />
     <Content Include="Scripts\ui\jquery.ui.widget.js" />
     <Content Include="styles\editor.css" />
+    <Content Include="styles\menu_left2.css" />
+    <Content Include="styles\page-detail.css" />
     <Content Include="styles\page-input.css" />
     <Content Include="styles\component_library.css" />
     <Content Include="styles\jquery-te-1.4.0.css" />
@@ -349,6 +359,7 @@
     <Content Include="styles\mobiscroll-2.0rc2.full.min.css" />
     <Content Include="styles\pagestructure.css" />
     <Content Include="styles\popup.css" />
+    <Content Include="styles\page-report.css" />
     <Content Include="styles\Site.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

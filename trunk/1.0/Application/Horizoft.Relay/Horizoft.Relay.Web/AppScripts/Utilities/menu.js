@@ -48,53 +48,15 @@
         });
     }
 
-    //$.fn.loadLeftMenu = function (menuUrl, selectedItem) {
-    //    return this.each(function () {
-
-    //        function setSelectedItem() {
-    //            if (($li || '') != '')
-    //                $li.find("a").css({ "color": "#329ED3" });
-    //        }
-
-    //        function getSelectedItem() {
-    //            selectedItem = (($this.data("selecteditem") || '') != '') ? $this.data("selecteditem") : -1;
-
-    //            if (selectedItem > 0) {
-    //                return $this.find("li").eq(selectedItem - 1);
-    //            }
-    //        }
-
-    //        function getMatchedUrl() {
-    //            //var hrefs = window.location.pathname.split('/');
-    //            var href = window.location.pathname;
-    //            //var href = hrefs[hrefs.length - 1];
-    //            var $href = $this.find("a[href='" + href + "']");
-    //            var $li = $href.closest("li");
-
-    //            return $li;
-    //        }
-
-    //        var html = $.loadHtml(menuUrl);
-    //        var $this = $(this);
-    //        var selectedItem = -1;
-    //        $(this).html(html);
-
-    //        var $li = getMatchedUrl();
-    //        if ($li.length == 0) $li = getSelectedItem();
-    //        setSelectedItem();
-
-    //    });
-    //}
-
     $.fn.loadLeftMenu = function (menuUrl, selectedItem) {
         return this.each(function () {
 
             function setSelectedItem($li) {
                 if (($li || '') != '') {
-                    $li.css({ "background": "#009EDD" });
+                    $li.css({ "background": "#FF6E41" });
                     $li.find("a").css({ "color": "rgba(255, 255, 255, 1)" });
                 }
-
+                    
 
             }
 
@@ -112,7 +74,7 @@
                 var $href = $this.find("a[href$='" + href + "']");
                 var $li = $href.closest("li[data-menu-item]");
                 //if (($li || '') == '')
-                $li = $href.closest("td[data-menu-item]");
+                    $li = $href.closest("td[data-menu-item]");
 
                 return $li;
             }
