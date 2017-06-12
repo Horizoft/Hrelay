@@ -10,7 +10,7 @@ $(document).ready(function () {
     var api = mailApi.GetLast();
     var apiMonitor = monitorApi.GetLast();
 
-    if (api.error == undefined || apiMonitor.error == undefined) {
+    if (api.error == undefined && apiMonitor.error == undefined) {
         var mail = api.data;
         var monitor = apiMonitor.data;
         if ((mail || '') != '')
@@ -54,7 +54,7 @@ $(document).on("onSaveMail", "#popup-warning", function () {
             $("#popup-notification").popup({ show: true, message: "Failed to save mail data." });
 
     } else {
-        var result = 0;//mailApi.Add(mail);
+        var result = mailApi.Add(mail);
 
         if (result.error == undefined) {
             $("#popup-notification").popup({ show: true, message: "Mail data saved successfully." });
@@ -69,22 +69,22 @@ $(document).on("onSaveMail", "#popup-warning", function () {
 $(document).on("onResetMail", "#popup-warning", function () {
     var defualt_mail = mailApi.GetFirst(); //Defualt row 
     var mail = $("#mail-input").retrieve(new DTMail());
-    //mail.id = 0;
-    //mail.sender = "";
-    //mail.recipients = "";
-    //mail.subject = "";
-    //mail.message = "";
-
     mail.sender = defualt_mail.data.sender;
     mail.recipients = defualt_mail.data.recipients;
     mail.subject = defualt_mail.data.subject;
     mail.message = defualt_mail.data.message;
 
-    var result = mailApi.Update(mail);
+    var defualt_monitor = monitorApi.GetFirst();//Defualt row 
+    var monitor = monitorApi.GetLast();
+    monitor.data.temperatureAlert = defualt_monitor.data.temperatureAlert;
 
-    if (result.error == undefined) {
+    var result = mailApi.Update(mail);
+    var result_monitor = monitorApi.Update(monitor.data);
+
+    if (result.error == undefined && result_monitor.error == undefined) {
         $("#popup-notification").popup({ show: true, message: "Mail data reset successfully." });
         $(".form-input").bindView(result.data);
+        $(".form-input-monitor").val(monitor.data.temperatureAlert);
 
         // $(".form-input-message").html();
         $(".form-input-message").parent().parent().find(".jqte_editor").html(result.data.message)
