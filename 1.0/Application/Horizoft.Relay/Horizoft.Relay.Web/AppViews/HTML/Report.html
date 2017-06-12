@@ -2,11 +2,15 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" href="/Styles/pagestructure.css">
-	<link rel="stylesheet" href="/Styles/menu_left.css">
+	<!--<link rel="stylesheet" href="/Styles/menu_left.css">-->
+    <link rel="stylesheet" href="/Styles/menu_left2.css">
 	<link rel="stylesheet" href="/Styles/component_library.css">
     <link rel="stylesheet" href="/styles/jquery/base/jquery.ui.all.css" />
+
+    <link rel="stylesheet" href="/styles/page-report.css" />
+
 	<style>
-     .report-input {
+     /*.report-input {
             float: left;
             height: auto;
             min-height: 400px;
@@ -36,12 +40,12 @@
         }
 
         .report-output {
-            /*display: inline-block;*/
+            /*display: inline-block;
             width: auto;
-            /*height: 100vh;*/
+            /*height: 100vh;
             overflow: auto;
-            /*border: 1px solid rgba(0, 0, 0, 0.2);*/
-        }
+            /*border: 1px solid rgba(0, 0, 0, 0.2);
+        }*/
 
 	</style>
 	<!--<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>-->
@@ -60,16 +64,18 @@
     <script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.datereport.js"></script>
     <script type="text/javascript" src="/AppScripts/API/TemperatureReportAPI.js"></script>
 
+    <script type="text/javascript" src="/AppScripts/Controllers/Report.js"></script>
+
 	<script>
 
-	    var temperatureReportApi = new TemperatureReportAPI();
+	    //var temperatureReportApi = new TemperatureReportAPI();
 
-	    $(document).ready(function () {
-	        $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
-	        $("#report").dateReport();
+	    //$(document).ready(function () {
+	    //    $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
+	    //    $("#report").dateReport();
 
 
-	    })
+	    //})
 
 		</script>
 </head>
@@ -78,7 +84,7 @@
 	<div class="view-section-left">
         <div class="view-section-left-head">
             <div class="img-H">
-                <img src="../../Images/H4.png" alt="relay" />
+                <img src="../../Images/H4.png" style="width:50px; height:40px;" alt="relay" />
                 <div class="view-section-left-head-name">Relay</div>
             </div>
         </div>
