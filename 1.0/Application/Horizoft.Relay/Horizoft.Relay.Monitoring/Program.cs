@@ -56,14 +56,12 @@ namespace Horizoft.Relay.Monitoring
                 NotifyByMail(relayData);
             }
 
-
-
 		}
 
         private static TemperatureData MonitorRelay(DateTime time)
         {
             //string sourceLocation = ConfigurationManager.AppSettings["RELAY_LOG_LOCATION"];
-            string sourceLocation = monitorDto.LogURL;
+            string sourceLocation = monitorDto.LogURL + (monitorDto.LogURL.EndsWith("/")?"":"/") + "log.txt";
 
             SourceType sourceType = (Regex.IsMatch(sourceLocation, PATTERN_URL)) ? SourceType.Url : SourceType.File;
 
