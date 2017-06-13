@@ -57,7 +57,7 @@
 	/*color: rgba(23, 97, 140, 1);*/
 	
     font-weight: bold;
-    color:white;
+    
 
 
    
@@ -78,6 +78,7 @@
     color: rgba(0, 0, 0, 0.7);
 }
 
+
 .menu-left td[data-menu-level] {
     padding: 10px 10px 10px 10px;
 }
@@ -91,11 +92,11 @@
    
 }
 
-.menu-left td[data-menu-item=true]:hover {
-    /*background: rgba(255, 110, 65, 0.4);*/
-    background: rgba(50, 158, 221, 1);
-	font-weight: bold;
-}
+    .menu-left td[data-menu-item=true]:hover {
+        /*background: rgba(255, 110, 65, 0.4);*/
+        background: rgba(245, 245, 245, 1) ;
+        font-weight: bold;
+    }
 
 /*.menu-left-first,
 .menu-left-second {
@@ -109,6 +110,3 @@
 .menu-left-second {
     padding-left: 40px;
 }*/
-.td:active{
-    color:white;
-}	
