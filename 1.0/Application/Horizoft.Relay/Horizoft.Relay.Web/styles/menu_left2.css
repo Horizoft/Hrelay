@@ -94,7 +94,8 @@
 
     .menu-left td[data-menu-item=true]:hover {
         /*background: rgba(255, 110, 65, 0.4);*/
-        background: rgba(245, 245, 245, 1) ;
+        /* background: rgba(245, 245, 245, 1) ;*/
+        background-color: rgba(238, 238, 238, 1);
         font-weight: bold;
     }
 
