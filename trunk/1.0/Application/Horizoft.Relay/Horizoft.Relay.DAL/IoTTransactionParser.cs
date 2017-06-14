@@ -23,9 +23,9 @@ namespace Horizoft.Relay.DAL
             url = ConfigurationManager.AppSettings["URL"] + "/state.xml";
         }
 
-        public IoTTransactionParser(string url)
+        public IoTTransactionParser(string hostUrl)
         {
-            url += "/state.xml";
+            url = hostUrl + "/state.xml";
         }
 
         public IoTTransaction GetCurrentState()
