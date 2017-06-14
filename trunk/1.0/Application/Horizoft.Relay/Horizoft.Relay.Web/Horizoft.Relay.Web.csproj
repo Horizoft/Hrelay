@@ -172,6 +172,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ConfigProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppScripts\API\HostAPI.js" />
@@ -180,7 +181,6 @@
     <Content Include="AppScripts\API\RelayAPI.js" />
     <Content Include="AppScripts\API\TemperatureReportAPI.js" />
     <Content Include="AppScripts\Controllers\Home.js" />
-    <Content Include="AppScripts\Controllers\Home2.js" />
     <Content Include="AppScripts\Controllers\Host.js" />
     <Content Include="AppScripts\Controllers\Mail.js" />
     <Content Include="AppScripts\Controllers\Monitor.js" />

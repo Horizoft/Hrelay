@@ -1,12 +1,15 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Host";
     Layout = null;
 }
 
 <html>
 <head>
-    <title></title>
+    <script>
+        var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
+        var menuUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.MenuUrl';
+    </script>
+
     <link rel="stylesheet" href="~/Styles/pagestructure.css">
     <link rel="stylesheet" href="~/Styles/menu_left2.css">
     <link rel="stylesheet" href="~/Styles/component_library.css">
