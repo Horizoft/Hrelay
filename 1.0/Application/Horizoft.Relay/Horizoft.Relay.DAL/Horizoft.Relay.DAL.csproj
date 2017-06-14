@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="HostRepository.cs" />
     <Compile Include="IoTReferenceParser.cs" />
+    <Compile Include="IoTTransactionParser.cs" />
     <Compile Include="MailRepository.cs" />
     <Compile Include="MonitorRepository.cs" />
     <Compile Include="TemperatureDataRepository.cs" />
