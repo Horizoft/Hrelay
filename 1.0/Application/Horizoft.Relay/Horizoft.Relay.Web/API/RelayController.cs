@@ -25,12 +25,12 @@ namespace Horizoft.Relay.Web.API
         }
         
         [HttpGet]
-        public IHttpActionResult GetReference(string url)
+        public IHttpActionResult GetReference(string hotsUrl)
         {
             try
             {
                 IoTReferenceParser iotRefParser = new IoTReferenceParser();
-                IoTReference iotRef = iotRefParser.Get(url);
+                IoTReference iotRef = iotRefParser.Get(hotsUrl);
 
                 return Ok(iotRef);
             }
@@ -60,9 +60,9 @@ namespace Horizoft.Relay.Web.API
         }
 
         [HttpGet]
-        public IHttpActionResult GetCurrentState(string url)
+        public IHttpActionResult GetCurrentState(string hostUrl)
         {
-            IoTTransactionParser iotTransactionParser = new IoTTransactionParser(url);
+            IoTTransactionParser iotTransactionParser = new IoTTransactionParser(hostUrl);
 
             try
             {
