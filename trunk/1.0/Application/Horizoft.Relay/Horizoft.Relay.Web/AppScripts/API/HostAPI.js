@@ -2,7 +2,7 @@
 
     this.webApi = new webAPI();
     //this.url = "/API/Host/";
-    this.url = serviceUrl + "/Host/";
+    this.url = serviceUrl + "/API/Host/";
 
     this.GetFirst = function () {
         var action = "GetFirst"

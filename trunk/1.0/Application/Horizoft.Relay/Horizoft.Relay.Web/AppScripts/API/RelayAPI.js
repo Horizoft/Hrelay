@@ -1,7 +1,7 @@
 ﻿function RelayAPI() {
     this.webApi = new webAPI();
     //this.url = "/API/Relay/";
-    this.url = serviceUrl + "/Relay/";
+    this.url = serviceUrl + "/API/Relay/";
 
     this.GetReference = function () {
         var action = "GetReference"
