@@ -2,7 +2,7 @@
 var monitorApi = new MonitorAPI();
 
 $(document).ready(function () {
-    $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
+    $("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
 
     $("#popup-warning").popup({ status: "init" });
     $("#popup-notification").popup({ status: "init" });

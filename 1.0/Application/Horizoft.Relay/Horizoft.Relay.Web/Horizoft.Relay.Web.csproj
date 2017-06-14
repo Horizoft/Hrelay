@@ -167,6 +167,7 @@
     <Compile Include="Controllers\MonitorController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +197,7 @@
     <Content Include="AppViews\Home\Home.html" />
     <Content Include="AppViews\Home\Index.html" />
     <Content Include="AppViews\Home\LeftMenu.html" />
+    <Content Include="AppViews\Home\LeftMenu2.html" />
     <Content Include="AppViews\HTML\Home.html" />
     <Content Include="AppViews\HTML\Report.html" />
     <Content Include="AppViews\HTML\Host.html" />
@@ -371,9 +373,14 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Reports\TemperatureDaily.cshtml" />
     <Content Include="TemperatureDaily.html" />
     <Content Include="Views\Monitor\Test.cshtml" />
+    <Content Include="Views\Setting\Monitor.cshtml" />
+    <Content Include="Views\Setting\Mail.cshtml" />
+    <Content Include="Views\Setting\Host.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Reports\TemperatureDaily1.cshtml" />
+    <Content Include="Views\Reports\TemperatureDaily.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Horizoft.Relay.DAL\Horizoft.Relay.DAL.csproj">
