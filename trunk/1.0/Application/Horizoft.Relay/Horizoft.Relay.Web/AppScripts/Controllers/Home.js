@@ -1,7 +1,7 @@
 ﻿var relayApi = new RelayAPI();
 
 $(document).ready(function () {
-    $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
+    $("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
     //$("#report").dateReport({ date: "2017-04-07" });
     getIoTReference();
     setInterval(updateIoTTransaction, 3000);

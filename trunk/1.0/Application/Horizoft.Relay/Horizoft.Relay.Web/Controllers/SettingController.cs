@@ -6,22 +6,25 @@ using System.Web.Mvc;
 
 namespace Horizoft.Relay.Web.Controllers
 {
-    public class ReportsController : Controller
+    public class SettingController : Controller
     {
-        // GET: Reports
-        public ActionResult Index()
+        // GET: WebRelay
+
+        public ActionResult Monitor()
+        {
+            return View();
+        }
+        public ActionResult Mail()
         {
             return View();
         }
 
-        public ActionResult TemperatureDaily1()
+        public ActionResult Host()
         {
             return View();
         }
 
-        public ActionResult TemperatureDaily()
-        {
-            return View();
-        }
     }
+
+
 }
