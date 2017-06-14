@@ -38,6 +38,7 @@ namespace Horizoft.Relay.Web.API
         public IHttpActionResult GetCurrentState()
         {
             string url = ConfigurationManager.AppSettings["URL"] + "/state.xml";
+            //string url = "http://relay.horizoft.prl/AppViews/Relay/state2.xml";
 
             try
             {
@@ -64,13 +65,13 @@ namespace Horizoft.Relay.Web.API
                 iotTrs.R9 = Convert.ToInt32(root["relay9state"].InnerText);
                 iotTrs.R10 = Convert.ToInt32(root["relay10state"].InnerText);
                 iotTrs.Units = root["units"].InnerText;
-                iotTrs.T1 = Convert.ToDecimal(root["sensor1temp"].InnerText);
-                iotTrs.T2 = Convert.ToDecimal(root["sensor2temp"].InnerText);
-                iotTrs.ExtVar0 = Convert.ToDecimal(root["extvar0"].InnerText);
-                iotTrs.ExtVar1 = Convert.ToDecimal(root["extvar1"].InnerText);
-                iotTrs.ExtVar2 = Convert.ToDecimal(root["extvar2"].InnerText);
-                iotTrs.ExtVar3 = Convert.ToDecimal(root["extvar3"].InnerText);
-                iotTrs.ExtVar4 = Convert.ToDecimal(root["extvar4"].InnerText);
+                iotTrs.T1 = ConvertToDecimal(root["sensor1temp"].InnerText);
+                iotTrs.T2 = ConvertToDecimal(root["sensor2temp"].InnerText);
+                iotTrs.ExtVar0 = ConvertToDecimal(root["extvar0"].InnerText);
+                iotTrs.ExtVar1 = ConvertToDecimal(root["extvar1"].InnerText);
+                iotTrs.ExtVar2 = ConvertToDecimal(root["extvar2"].InnerText);
+                iotTrs.ExtVar3 = ConvertToDecimal(root["extvar3"].InnerText);
+                iotTrs.ExtVar4 = ConvertToDecimal(root["extvar4"].InnerText);
                 iotTrs.SerialNumber = root["serialNumber"].InnerText;
                 iotTrs.CurrentDateTime = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(root["time"].InnerText));
                 iotTrs.CurrentDay = iotTrs.CurrentDateTime.ToString("dddd");
@@ -84,6 +85,12 @@ namespace Horizoft.Relay.Web.API
             {
                 return InternalServerError(ex);
             }
+        }
+
+        private static Decimal ConvertToDecimal(string data)
+        {
+            Decimal parse_result;
+            return (Decimal.TryParse(data, out parse_result)) ? parse_result : -300;
         }
 
     }

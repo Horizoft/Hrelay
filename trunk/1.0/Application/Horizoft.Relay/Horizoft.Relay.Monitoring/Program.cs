@@ -71,6 +71,12 @@ namespace Horizoft.Relay.Monitoring
             return relayData;
         }
 
+        //private static IoTTransaction GetCurrentState()
+        //{
+        //    string url = "http://relay.horizoft.prl/API/Relay/GetCurrentState";
+        //}
+
+
         private static bool IsCriticalTemperature(Decimal temperature)
         {
             //Decimal criticalTemperature = Convert.ToDecimal(ConfigurationManager.AppSettings["SENSOR_CRITICALTEMPERATURE"]); //celcius
