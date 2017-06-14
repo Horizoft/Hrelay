@@ -9,7 +9,6 @@
     <title>@ViewBag.Title</title>
     <script>
         var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
-        var menuUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.MenuUrl';
     </script>
 
     <link rel="stylesheet" href="~/Styles/pagestructure.css">
@@ -34,13 +33,18 @@
     <script type="text/javascript" src="~/AppScripts/API/TemperatureReportAPI.js"></script>
 
     <script type="text/javascript" src="~/AppScripts/Controllers/Report.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
+        })
+    </script>
 
 </head>
 <body>
     <div class="view-section-left">
         <div class="view-section-left-head">
             <div class="img-H">
-                <img src="~/Images/H4.png" style="width:50px; height:40px;" alt="relay" />
+                <img src='@Url.Content("~/Images/H4.png")' style="width:50px; height:40px;" alt="relay" />
                 <div class="view-section-left-head-name">Relay</div>
             </div>
         </div>
@@ -58,7 +62,7 @@
             <div class="report-input">
                 <ul id="dateList">
                     <li>
-                        <input type="text" class="datePicker" data-field="date" /><img class="deleteDatePicker" src="~/Images/delete.png" data-action="date-delete" />
+                        <input type="text" class="datePicker" data-field="date" /><img class="deleteDatePicker" src='@Url.Content("~/Images/delete.png")' data-action="date-delete" />
                     </li>
                 </ul>
             </div>
