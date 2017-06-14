@@ -10,13 +10,13 @@ namespace Horizoft.Relay.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
+           
             return View();
         }
 
-        public ActionResult Home()
+        public ActionResult Index1()
         {
+           
             return View();
         }
     }
