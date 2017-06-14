@@ -96,9 +96,11 @@
 			textBox.datepicker({
 				dateFormat: "yy-mm-dd",
 				showOn: "button",
-				buttonImage: "../../Images/calendar.gif",
+			    //buttonImage: "../../Images/calendar.gif",
+				buttonImage: serviceUrl + "/Images/calendar.gif",
 				buttonImageOnly: true
 			});
+
 
 		}
 
