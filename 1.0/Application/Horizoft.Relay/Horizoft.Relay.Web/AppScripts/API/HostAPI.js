@@ -1,7 +1,8 @@
 ﻿function HostAPI() {
 
     this.webApi = new webAPI();
-    this.url = "/API/Host/";
+    //this.url = "/API/Host/";
+    this.url = serviceUrl + "/Host/";
 
     this.GetFirst = function () {
         var action = "GetFirst"

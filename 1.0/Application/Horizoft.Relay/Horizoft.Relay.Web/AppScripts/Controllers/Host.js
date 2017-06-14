@@ -1,7 +1,8 @@
 ﻿var hostApi = new HostAPI();
 
 $(document).ready(function () {
-    $("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
+    //$("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
+    $("#menu-left").loadLeftMenu(menuUrl + "/LeftMenu2.html", "blue-highlight");
 
     $("#popup-warning").popup({ status: "init" });
     $("#popup-notification").popup({ status: "init" });

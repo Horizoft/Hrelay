@@ -1,6 +1,7 @@
 ﻿function TemperatureReportAPI() {
     this.webApi = new webAPI();
-    this.url = "/API/TemperatureReport/";
+    //this.url = "/API/TemperatureReport/";
+    this.url = serviceUrl + "/TemperatureReport/";
 
     this.getReports = function (date) {
         var action = "GetReports"
