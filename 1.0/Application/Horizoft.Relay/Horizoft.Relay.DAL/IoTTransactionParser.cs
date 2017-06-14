@@ -15,12 +15,12 @@ namespace Horizoft.Relay.DAL
 
         public IoTTransactionParser()
         {
-            //MonitorRepository monitorDal = new MonitorRepository();
-            //Monitor monitorDto = monitorDal.GetLast();
+            MonitorRepository monitorDal = new MonitorRepository();
+            Monitor monitorDto = monitorDal.GetLast();
 
-            //url = monitorDto.LogURL + "/state.xml";
+            url = monitorDto.LogURL + "/state.xml";
 
-            url = ConfigurationManager.AppSettings["URL"] + "/state.xml";
+            //url = ConfigurationManager.AppSettings["URL"] + "/state.xml";
         }
 
         public IoTTransactionParser(string hostUrl)

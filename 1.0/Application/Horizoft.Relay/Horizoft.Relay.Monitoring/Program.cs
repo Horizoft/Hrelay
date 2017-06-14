@@ -35,7 +35,7 @@ namespace Horizoft.Relay.Monitoring
             MonitorRepository monitorDal = new MonitorRepository();
             monitorDto = monitorDal.GetLast();
             
-            IoTTransactionParser iotTrsParser = new IoTTransactionParser();
+            IoTTransactionParser iotTrsParser = new IoTTransactionParser(monitorDto.LogURL);
             IoTTransaction iotTrsData = iotTrsParser.GetCurrentState();
 
             Decimal currentTemperature = iotTrsData.T1;
