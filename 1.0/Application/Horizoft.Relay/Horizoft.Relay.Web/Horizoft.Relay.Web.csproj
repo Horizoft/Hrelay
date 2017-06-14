@@ -381,6 +381,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Reports\TemperatureDaily1.cshtml" />
     <Content Include="Views\Reports\TemperatureDaily.cshtml" />
+    <Content Include="Views\Home\LeftMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Horizoft.Relay.DAL\Horizoft.Relay.DAL.csproj">

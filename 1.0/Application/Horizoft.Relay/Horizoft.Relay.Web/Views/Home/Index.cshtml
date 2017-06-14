@@ -9,7 +9,6 @@
     <title>@ViewBag.Title</title>
     <script>
         var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
-        var menuUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.MenuUrl';
     </script>
     <link href="~/styles/pagestructure.css" rel="stylesheet" />
     <link href="~/styles/menu_left2.css" rel="stylesheet" />
@@ -168,14 +167,16 @@
             }
 
             .dashboard-appliance-icon[data-status='0'] {
-                background-image: url('../../Images/Freez_blue.png');
+                background-image: url('@Url.Content("~/Images/Freez_blue.png")');
+                /*background-image: url('../../Images/Freez_blue.png');*/
                 /*background-color: rgba(0, 0, 0, 0.5);*/
                 box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);
             }
 
             .dashboard-appliance-icon[data-status='1'] {
+                background-image: url('@Url.Content("~/Images/Freez_green.png")');
                 /* background-color: rgba(0, 128, 0, 0.8);*/
-                background-image: url('../../Images/Freez_green.png');
+                /*background-image: url('../../Images/Freez_green.png');*/
                 box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2), 0px 6px 20px 0px rgba(0,0,0,0.19);
             }
 
@@ -207,7 +208,8 @@
 
         $(document).ready(function () {
             //$("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
-            $("#menu-left").loadLeftMenu(menuUrl + "/LeftMenu2.html", "blue-highlight");
+            //$("#menu-left").loadLeftMenu(menuUrl + "/LeftMenu2.html", "blue-highlight");
+            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
             //$("#report").dateReport({ date: "2017-04-07" });
             getIoTReference();
             setInterval(updateIoTTransaction, 3000);
@@ -251,7 +253,7 @@
 
         <div class="view-section-left-head">
             <div class="img-H">
-                <img src="~/Images/H4.png" style="width:50px; height:40px;" alt="relay" />
+                <img src='@Url.Content("~/Images/H4.png")' style="width:50px; height:40px;" alt="relay" />
                 <div class="view-section-left-head-name">Relay</div>
             </div>
 
@@ -260,19 +262,7 @@
         <div class="view-section-left-container">
 
             <div class="menu-left" id="menu-left">
-                <ul>
-                    <!--<li class="header">Component</li>-->
-                    <li><a href="/AppViews/HTML/Home.html">Home</a></li>
-                    <li><a href="/AppViews/HTML/Monitor.html">Monitor</a></li>
-                    <li>
-                        Mail Alert Setting
-                        <ul>
-                            <li><a href="/AppViews/HTML/Mail.html">Mail</a></li>
-                            <li><a href="/AppViews/HTML/Host.html">Host</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/AppViews/HTML/Report.html">Report</a></li>
-                </ul>
+                
             </div>
         </div>
     </div>
