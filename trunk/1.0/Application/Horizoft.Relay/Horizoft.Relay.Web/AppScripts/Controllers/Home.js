@@ -1,13 +1,10 @@
 ﻿var relayApi = new RelayAPI();
 
-$(document).ready(function () {
-    //$("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
-    //$("#menu-left").loadLeftMenu(menuUrl + "/LeftMenu2.html", "blue-highlight");
-    //$("#report").dateReport({ date: "2017-04-07" });
-    getIoTReference();
-    setInterval(updateIoTTransaction, 3000);
+//$(document).ready(function () {
+//    getIoTReference();
+//    setInterval(updateIoTTransaction, 3000);
 
-})
+//})
 
 function getIoTReference() {
     var api = relayApi.GetReference();
@@ -33,7 +30,7 @@ function updateIoTTransaction() {
             $(".form-output").bindView(iotTrs);
     }
 
-    $(".dashboard-appliance").each(function () {
+    $(".dashboard-appliance-icon input").each(function () {
         $(this).parent().attr("data-status", ($(this).val() == "") ? 0 : 1);
     });
 

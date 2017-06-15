@@ -216,37 +216,9 @@
 
         })
 
-        function getIoTReference() {
-            var api = relayApi.GetReference();
-
-            if (api.error == undefined) {
-                var iotRef = api.data;
-                if ((iotRef || '') != '')
-                    $(".form-output").bindView(iotRef);
-
-                $(".dashboard-appliance").each(function () {
-                    $('.dashboard-hidden[value!="true"]').parent().addClass('operate-hidden');
-                });
-            }
-        }
-
-        function updateIoTTransaction() {
-            //$("#report").dateReport({ date: "2017-04-07" });
-            var api = relayApi.GetCurrentState();
-
-            if (api.error == undefined) {
-                var iotTrs = api.data;
-                if ((iotTrs || '') != '')
-                    $(".form-output").bindView(iotTrs);
-            }
-
-            $(".dashboard-appliance").each(function () {
-                $(this).parent().attr("data-status", ($(this).val() == "") ? 0 : 1);
-            });
-
-        }
-
     </script>
+
+    <script type="text/javascript" src="~/AppScripts/Controllers/Home.js"></script>
 </head>
 <body>
     <div class="view-section-left">
@@ -278,8 +250,8 @@
                     </li>
                 </ul>
             </div>
-            <div id="chart" class="report-output"></div>
-        </div>-->
+            <div id="chart" class="report-output"></div>-->
+        </div>
         <div class="view-section-center-container form-output">
             <div class="dashboard-row">
 
@@ -320,14 +292,14 @@
                         <input class="dashboard-hidden" type="hidden" data-field="isRelay2Operate" />
                     </div>
                     <div class="dashboard-appliance">
-                        <div class="dashboard-appliance-icon" data-status="0">
+                        <div class="dashboard-appliance-icon"  data-status="0">
                             <input type="text" data-field="r3" hidden />
                         </div>
                         <div class="dashboard-label" data-field="relay3Name">Relay 3</div>
                         <input class="dashboard-hidden" type="hidden" data-field="isRelay3Operate" />
                     </div>
                     <div class="dashboard-appliance">
-                        <div class="dashboard-appliance-icon" data-status="1">
+                        <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r4" hidden />
                         </div>
                         <div class="dashboard-label" data-field="relay4Name">Relay 4</div>
@@ -380,5 +352,6 @@
                 </div>
             </div>
         </div>
-</body>
+
+         </body>
 </html>
