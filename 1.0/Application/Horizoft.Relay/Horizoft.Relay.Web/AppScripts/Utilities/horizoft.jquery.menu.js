@@ -115,6 +115,8 @@
                 //if (($li || '') == '')
                 $li = $href.closest("td[data-menu-item]");
 
+                if ($href.length === 0)
+                    $li = $('tr:first td[data-menu-item]'); 
                 return $li;
             }
 
