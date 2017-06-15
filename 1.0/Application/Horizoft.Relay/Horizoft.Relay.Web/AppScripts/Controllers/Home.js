@@ -1,10 +1,6 @@
-﻿var relayApi = new RelayAPI();
-
-//$(document).ready(function () {
-//    getIoTReference();
-//    setInterval(updateIoTTransaction, 3000);
-
-//})
+﻿var monitorApi = new MonitorAPI();
+var hostApi = monitorApi.GetLast();
+var hostUrl = hostApi.data.logURL;
 
 function getIoTReference() {
     var api = relayApi.GetReference();
@@ -22,7 +18,7 @@ function getIoTReference() {
 
 function updateIoTTransaction() {
     //$("#report").dateReport({ date: "2017-04-07" });
-    var api = relayApi.GetCurrentState();
+    var api = relayApi.GetCurrentState(hostUrl);
 
     if (api.error == undefined) {
         var iotTrs = api.data;

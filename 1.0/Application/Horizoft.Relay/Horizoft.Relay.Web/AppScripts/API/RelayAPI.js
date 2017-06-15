@@ -10,8 +10,15 @@
         return iotRef;
     }
 
-    this.GetCurrentState = function () {
-        var action = "GetCurrentState"
+    //this.GetCurrentState = function () {
+    //    var action = "GetCurrentState"
+    //    var type = "GET"
+    //    var iotTrs = CRUD(iotTrs, this.url + action, type);
+    //    return iotTrs;
+    //}
+
+    this.GetCurrentState = function (hostUrl) {
+        var action = "GetCurrentState?hostUrl=" + hostUrl
         var type = "GET"
         var iotTrs = CRUD(iotTrs, this.url + action, type);
         return iotTrs;
