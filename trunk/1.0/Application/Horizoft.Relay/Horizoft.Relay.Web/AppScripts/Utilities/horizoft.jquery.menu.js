@@ -92,8 +92,7 @@
             function setSelectedItem($li) {
                 if (($li || '') != '') {
                     $li.css({"background": "rgba(238, 238, 238, 1)", "border-left-color": "rgba(255, 140, 0, 1)" ,"border-left-style": "solid"});
-                    $li.find("a").css({ "color": "rgba(33, 33, 33, 1)" }
-                       );
+                    $li.find("a").css({ "color": "rgba(33, 33, 33, 1)" });
                 }
 
 
