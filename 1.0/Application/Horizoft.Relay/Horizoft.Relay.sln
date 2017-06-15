@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizoft.Relay.DTO.LogToDb", "Horizoft.Relay.DTO.LogToDb\Horizoft.Relay.DTO.LogToDb.csproj", "{6F9DEF11-05E6-497D-9466-13572A5E4AA9}"
 EndProject
@@ -38,6 +38,7 @@ Global
 		{57E1CB55-1B8F-4091-A565-0478A420DA36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0021840F-A361-4202-8E22-D2AB164BAFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0021840F-A361-4202-8E22-D2AB164BAFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0021840F-A361-4202-8E22-D2AB164BAFDA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{0021840F-A361-4202-8E22-D2AB164BAFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0021840F-A361-4202-8E22-D2AB164BAFDA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40B14877-0208-4932-9387-F9E4D9978631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
