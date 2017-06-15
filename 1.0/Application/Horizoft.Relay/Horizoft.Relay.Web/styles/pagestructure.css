@@ -14,7 +14,7 @@
 .view-section-left-head {
     height: 30px;
     padding: 15px 10px;
-    background: rgba(50, 158, 221, 0.9);
+    background: rgb(10, 90, 136);
     color: #fff;
     font-size: 24px;
     font-weight: 400;
@@ -51,15 +51,14 @@
 .view-section-center-head {
     height: 30px;
     padding: 20px 15px 10px 15px;
-    background: rgba(50, 158, 221, 1);
+    background: rgb(23, 115, 169);
     color: #fff;
     font-size: 22px;
     font-weight: 400;
     /*Edit shadow head nav*/
     box-shadow: 3px 1px 10px rgba(37,37,37,0.66);
-    position:static;
+    position: static;
     /*width:87%;*/
-
 }
 
 .view-section-center-container {
