@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Horizoft.Relay.Web.Controllers
 {
+    [Authorize]
     public class SettingController : Controller
     {
         // GET: WebRelay

@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace Horizoft.Relay.API
 {
+    [Authorize]
     public class HostController : ApiController
     {
         private HostRepository hostRepository = new HostRepository();
