@@ -13,6 +13,7 @@ using Horizoft.Relay.DAL;
 
 namespace Horizoft.Relay.Web.API
 {
+    [Authorize]
     public class RelayController : ApiController
     {
         [HttpGet]
