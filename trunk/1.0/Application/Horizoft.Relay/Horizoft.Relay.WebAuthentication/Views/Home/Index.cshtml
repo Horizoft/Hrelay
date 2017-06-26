@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Home";
     Layout = string.Empty;
 }
@@ -235,14 +234,27 @@
         <div class="view-section-left-container">
 
             <div class="menu-left" id="menu-left">
-                
             </div>
         </div>
     </div>
     <!--
     -->
     <div class="view-section-center">
-        <div class="view-section-center-head">Home</div>
+        @Html.Partial("../Shared/_LoginPartial")
+        <div class="view-section-center-head">Home
+            
+            
+            @*<span style="float:right;">
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+                               <a style="color:#FFFFFF;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        
+                        }
+            </span>
+            <span style="float:right;">@Html.ActionLink(User.Identity.GetUserName(), "", "", routeValues: null, htmlAttributes: new { title = "" })</span>*@
+
+        </div>
         <!--<div id="report" class="view-section-center-container">
             <div class="report-input">
                 <ul id="dateList">

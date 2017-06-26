@@ -1,8 +1,9 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "LeftMenu";
     Layout = null;
 }
+
 
 <style>
     .tb_left_manu {
@@ -13,7 +14,8 @@
         border-collapse: collapse;
     }
 </style>
-
+@*@if (Request.IsAuthenticated)
+{*@
 <table class="left-manu">
     <tbody class="tb_left_manu">
         <!--<tr><td data-menu-level="1" data-menu-item="true"><a href="/Home/">Home</a></td></tr>-->
@@ -22,9 +24,42 @@
         <tr><td data-menu-level="2" data-menu-item="true"><a href='@Url.Content("~/Setting/Monitor")'>Relay URL</a></td></tr>
         <tr><td data-menu-level="2" data-menu-item="true"><a href='@Url.Content("~/Setting/Mail")'>Temperature Alert</a></td></tr>
         <tr><td data-menu-level="2" data-menu-item="true"><a href='@Url.Content("~/Setting/Host")'>Mail Server</a></td></tr>
+
+        @*@if (User.IsInRole("Administrator"))
+        {
+            <tr><td data-menu-level="2" data-menu-item="true" class="admin">
+                <a href='@Url.Content("~/Admin")'>Admin</a>
+                </td></tr>
+
+        }*@
+        
         <tr><td data-menu-level="1" data-menu-item="true"><a href='@Url.Content("~/Reports/TemperatureDaily")'>Report</a></td></tr>
+
+        @*<tr>
+            <td data-menu-level="1" data-menu-item="true" >
+                
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                           @*<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        
+                           <input name="v" type="hidden" value="logoutForm">
+                           <a href='#' onclick="document.forms[0].v.value = 'logoutForm'; document.forms[0].submit();">Log out</a>
+                    }
+                
+            </td>
+        </tr>
+        <tr>
+            <td data-menu-level="1" data-menu-item="true">
+                @Html.ActionLink(User.Identity.GetUserName(), "", "", routeValues: null, htmlAttributes: new { title = "" })
+            </td>
+        </tr>*@
 
     </tbody>
 </table>
+    @*}*@
+
+
+
 
 
