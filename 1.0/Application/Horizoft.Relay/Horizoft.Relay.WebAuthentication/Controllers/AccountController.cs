@@ -397,7 +397,7 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "_Home");
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -508,7 +508,7 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "_Home");
+            return RedirectToAction("Index", "Home");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
