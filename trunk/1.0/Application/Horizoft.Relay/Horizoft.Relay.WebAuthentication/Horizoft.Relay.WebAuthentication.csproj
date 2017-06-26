@@ -377,6 +377,7 @@
     <Content Include="Images\Freez_blue.png" />
     <Content Include="Images\Freez_green.png" />
     <Content Include="Images\H4.png" />
+    <Content Include="Images\logo5.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />

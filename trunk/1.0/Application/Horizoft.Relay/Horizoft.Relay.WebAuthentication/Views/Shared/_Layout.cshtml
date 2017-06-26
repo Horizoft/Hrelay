@@ -3,20 +3,134 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+   
+   @*<title>@ViewBag.Title</title>*@ 
+   
     @*@Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")*@
 
-    @Styles.Render("~/Styles/pagestructure.css")
-    @Styles.Render("~/Styles/menu_left2.css")
+    @*@Styles.Render("~/Styles/pagestructure.css")
+    @Styles.Render("~/Styles/menu_left2.css")*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
 
+
+  
     <style>
-        .admin{
-            background: rgb(238, 238, 238) none repeat scroll 0% 0%; 
-            border-left-color: rgb(255, 140, 0); 
-            border-left-style: solid;
+
+
+        body {
+            background: #2c4a65;
+            padding: 50px;
+            font-family: "Arial","HelveticaNeue", "Helvetica Neue", "Helvetica", "sans-serif";
+           
         }
-        
+        .row {
+            width: 250px;
+            height: auto;
+            margin: auto;
+            margin-top: 10%;
+        }
+        .avatar{
+            width: 90%;
+            margin: auto;
+            position: relative;
+
+        }
+        .col-md-8 {
+            padding: 10px;
+            font-size: 12px;
+            width: 250px;
+        }
+
+        .col-md-10 input[type="text"] {
+            border: none;
+            background: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            height: 30px;
+            outline: none;
+            width: calc(100% - 24px);
+            /*width: calc(100%);*/
+            margin: auto;
+            padding: 6px 12px 6px 12px;
+            border-radius: 7px 7px 7px 7px;
+        }
+   
+        /*.bar {
+            width: 100%;
+            height: 1px;
+            background: #fff;
+        }
+
+        .bar i {
+             width: 90%;
+             margin: auto;
+             height: 1px;
+             display: block;
+             background: #d1d1d1;
+         }*/
+        .col-md-10 input[type="password"] {
+            border: none;
+            background: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+            height: 30px;
+            outline: none;
+            width: calc(100% - 24px);
+            /*width: calc(100%);*/
+            margin: auto;
+            padding: 6px 12px 6px 12px;
+            border-radius: 7px 7px 7px 7px;
+        }
+
+        .col-md-offset-2 input[type="submit"] {
+            width: 100%;
+            border-radius: 7px;
+            background: #619cc6;
+            text-decoration: none;
+            border: none;
+            color: white;
+            /*margin-top: 15px;*/
+            padding-top: 10px;
+            padding-bottom: 10px;
+            outline: none;
+            font-size: 13px;
+            border-bottom: 3px solid #165880;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .col-md-offset-2 input[type="submit"]:hover {
+            background-color: #a1d1ef;
+            color: black;
+            font-weight: bold;
+        }
+
+        .text-danger {
+            padding:3px 0 0 3px;
+            color: #999;
+            max-height: 0;
+            transition: 0.28s;
+          
+            color: red;
+            font-style: italic;
+        }
+        .validation-summary-errors text-danger{
+            text-align:center;
+        } 
+        .checkbox {
+            margin: 10px 0 10px 0;
+            color: white;
+        }
+        .input[type="checkbox" i] {
+            margin: 3px 3px 3px 4px;
+        }
+
+
+
+
     </style>
 
 </head>
@@ -46,7 +160,7 @@
         </div>
     </div>*@
     
-    <div class="view-section-center">
+    <div class="view-section-center-login">
         @RenderBody()
         @*<hr />
         <footer>
