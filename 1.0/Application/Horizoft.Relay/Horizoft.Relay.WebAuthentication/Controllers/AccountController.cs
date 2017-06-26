@@ -98,7 +98,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/VerifyCode
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Require that the user has already logged in via username/password or external login
@@ -111,8 +112,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/VerifyCode
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
@@ -141,7 +143,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
+        //[AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -149,8 +152,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/Register
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -179,7 +183,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -192,7 +197,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ForgotPassword
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -200,8 +206,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/ForgotPassword
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -228,7 +235,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -236,7 +244,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -244,8 +253,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/ResetPassword
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -270,7 +280,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -278,8 +289,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/ExternalLogin
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -289,7 +301,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/SendCode
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -304,8 +317,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/SendCode
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
@@ -324,7 +338,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -354,8 +369,9 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // POST: /Account/ExternalLoginConfirmation
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
@@ -402,7 +418,8 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         public ActionResult ExternalLoginFailure()
         {
             return View();
@@ -431,6 +448,7 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
         // Utility
 
         // Add RoleManager
+
         #region public ApplicationRoleManager RoleManager
         private ApplicationRoleManager _roleManager;
         public ApplicationRoleManager RoleManager
@@ -448,6 +466,7 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
 
         // Add CreateAdminIfNeeded
         #region private void CreateAdminIfNeeded()
+        [Authorize(Roles = "Administrator")]
         private void CreateAdminIfNeeded()
         {
             ApplicationUser objAdminUser = new ApplicationUser();
