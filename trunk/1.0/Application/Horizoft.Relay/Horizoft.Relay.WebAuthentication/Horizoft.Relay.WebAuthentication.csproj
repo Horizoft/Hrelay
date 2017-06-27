@@ -530,6 +530,7 @@
     <Content Include="Styles\pagestructure.css" />
     <Content Include="Styles\popup.css" />
     <Content Include="Styles\Site.css" />
+    <Content Include="Views\Shared\_Layout2.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
