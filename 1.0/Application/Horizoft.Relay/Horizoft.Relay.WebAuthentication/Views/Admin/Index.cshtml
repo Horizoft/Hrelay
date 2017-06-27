@@ -17,28 +17,21 @@
     <link rel="stylesheet" href="~/Styles/menu_left2.css">
     <link rel="stylesheet" href="~/Styles/component_library.css">
     <link rel="stylesheet" href="~/Styles/jquery/base/jquery.ui.all.css" />
-    <link rel="stylesheet" href="~/Styles/page-report.css" />
 
     <script type="text/javascript" src="~/Scripts/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/ui/jquery.ui.core.js"></script>
     <script type="text/javascript" src="~/Scripts/ui/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="~/Scripts/ui/jquery.ui.datepicker.js"></script>
-    <script type="text/javascript" src="~/Scripts/highcharts.js"></script>
-    <script type="text/javascript" src="~/Scripts/exporting.js"></script>
 
     <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.string.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
 
     <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.datereport.js"></script>
-    <script type="text/javascript" src="~/AppScripts/API/TemperatureReportAPI.js"></script>
 
-    <script type="text/javascript" src="~/AppScripts/Controllers/Report.js"></script>
     <script>
         $(document).ready(function () {
-            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
-            @*$(".ui-datepicker-trigger").attr("src", '@Url.Content("~/Images/calendar.gif")');*@
+            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "")
+            $(".tb_left_manu td[data-menu-item=true]").removeAttr("style");
         })
 
     </script>
