@@ -10,6 +10,7 @@
         var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
     </script>
     <link href="~/Styles/pagestructure.css" rel="stylesheet" />
+    
     <link href="~/Styles/menu_left2.css" rel="stylesheet" />
     <link href="~/Styles/component_library.css" rel="stylesheet" />
     <link href="~/Styles/jquery/base/jquery.ui.all.css" rel="stylesheet" />
@@ -240,10 +241,12 @@
     <!--
     -->
     <div class="view-section-center">
-        @Html.Partial("../Shared/_LoginPartial")
-        <div class="view-section-center-head">Home
+      
+        @*@Html.Partial("../Shared/_LoginPartial")*@
+        <div class="view-section-center-head">
+            <div class="title-section-center-head">Home</div>
             
-            
+            <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div>
             @*<span style="float:right;">
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                         {

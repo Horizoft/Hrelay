@@ -44,7 +44,6 @@
 .view-section-center {
     /*display: inline-block;*/
     width: auto;
-    overflow: auto;
     vertical-align: top;
 }
 
@@ -60,10 +59,28 @@
     position: static;
     /*width:87%;*/
 }
+.title-section-center-head {
+    margin-left:15pc;
+}
+.logout-item-right-head {
+    list-style-type: none;
+    font-size: 12px;
+    float: right;
+    margin-top:-48px;
+}
+.navbar-right {
+    list-style-type: none;
+}
+.navbar-right li a[title="Admin"]{
+    color :black;
 
+}
+.navbar-right li a[href="javascript:document.getElementById('logoutForm').submit()"] {
+    color: black;
+
+} 
 .view-section-center-container {
     height: 100vh;
-  
     /*overflow: scroll;*/
     /*padding: 50px;*/
     background: #f5f5f5;
@@ -77,6 +94,14 @@
     border-radius: 2px;
     margin: 1rem;
     padding: 15px;
+}
+.card-admin {
+    display: inline-block;
+    background: #fff;
+    border-radius: 2px;
+    margin: 1rem;
+    padding: 30px;
+    font-size:13px;
 }
 
 .card-1 {
