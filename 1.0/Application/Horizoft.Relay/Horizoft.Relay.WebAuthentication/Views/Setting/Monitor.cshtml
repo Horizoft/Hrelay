@@ -54,8 +54,11 @@
     <!--
     -->
     <div class="view-section-center">
-        @Html.Partial("../Shared/_LoginPartial")
-        <div class="view-section-center-head">Monitor</div>
+        @*@Html.Partial("../Shared/_LoginPartial")*@
+        <div class="view-section-center-head">
+        <div class="title-section-center-head">Monitor</div>
+
+            <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div></div>
         <div class="view-section-center-container">
             <div class="card card-3">
                 <table id="monitor-item" class="form-input">

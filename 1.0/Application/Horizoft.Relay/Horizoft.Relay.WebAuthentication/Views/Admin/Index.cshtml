@@ -1,12 +1,50 @@
 ﻿@model PagedList.IPagedList< Horizoft.Relay.WebAuthentication.Models.ExpandedUserDTO>
 @using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@*<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <script>
+        var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
+    </script>
 
+    <link rel="stylesheet" href="~/Styles/pagestructure.css">
+    <link rel="stylesheet" href="~/Styles/menu_left2.css">
+    <link rel="stylesheet" href="~/Styles/component_library.css">
+    <link rel="stylesheet" href="~/Styles/jquery/base/jquery.ui.all.css" />
+    <link rel="stylesheet" href="~/Styles/page-report.css" />
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="~/Scripts/ui/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="~/Scripts/ui/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="~/Scripts/highcharts.js"></script>
+    <script type="text/javascript" src="~/Scripts/exporting.js"></script>
+
+    <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.string.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
+
+    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.datereport.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/TemperatureReportAPI.js"></script>
+
+    <script type="text/javascript" src="~/AppScripts/Controllers/Report.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
+            @*$(".ui-datepicker-trigger").attr("src", '@Url.Content("~/Images/calendar.gif")');*@
+        })
+
+    </script>
+
+</head>
+<body>
 <div class="view-section-left">
     <div class="view-section-left-head">
         <div class="img-H">
@@ -17,8 +55,8 @@
     <div class="view-section-left-container">
         <div id="menu-left" class="menu-left">
             @*@using (Html.BeginForm("LeftMenu", "Home", FormMethod.Get))
-            {*@
-                @Html.Partial("../Home/LeftMenu")
+                {*@
+            @Html.Partial("../Home/LeftMenu")
 
             @*}*@
         </div>
@@ -27,53 +65,59 @@
 
 
 <div class="view-section-center">
-    @Html.Partial("../Shared/_LoginPartial")
-    <div class="view-section-center-head">Admin</div>
+    @*@Html.Partial("../Shared/_LoginPartial")
+    <div class="view-section-center-head">Admin</div>*@
+    <div class="view-section-center-head">
+        <div class="title-section-center-head">Admin</div>
 
-    @*<div class="view-section-center-container">*@
-        @*<div class="card card-3">*@
-            <p>
-                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
-                @*@Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Back to Home", "../", "_Home", null, new { @class = "btn btn-default" })*@
-            </p>
-            <br />
+        <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div>
+    </div>
+   <div class="view-section-center-container">
+    <div class="card-admin card-3">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+        @*@Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Back to Home", "../", "_Home", null, new { @class = "btn btn-default" })*@
+    </p>
+    <br />
 
-            <table class="table">
-                <tr>
-                    <th>
-                        Email
-                    </th>
-                    <th>
+    <table class="table">
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
 
-                    </th>
-                    <th></th>
-                </tr>
+            </th>
+            <th></th>
+        </tr>
 
-                @foreach (var item in Model)
+        @foreach (var item in Model)
             {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
-                            @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
+                    @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
                 {
-                                @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
+                        @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
                     new { onclick = "return confirm('Are you sure you wish to delete this user?');" })
-                            }
-                        </td>
-                    </tr>
-                }
+                    }
+                </td>
+            </tr>
+        }
 
 
-            </table>
-
-        @*</div>*@
-    @*</div>*@
+    </table>
 
     </div>
+    </div>
+
+</div>
+</body>
+</html>
