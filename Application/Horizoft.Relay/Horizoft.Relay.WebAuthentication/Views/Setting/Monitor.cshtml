@@ -1,64 +1,33 @@
 ﻿
 @{
     ViewBag.Title = "Monitor";
-    Layout = null;
+    Layout = "~/Views/Shared/MasterPage.cshtml";
 }
 
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <script>
-        var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
-    </script>
-
-    <link rel="stylesheet" href="~/Styles/pagestructure.css">
-    <link rel="stylesheet" href="~/Styles/menu_left2.css">
-    <link rel="stylesheet" href="~/Styles/component_library.css">
-    <link rel="stylesheet" href="~/Styles/page-input.css">
-    <link rel="stylesheet" href="~/Styles/popup.css">
     <style>
         #numberOnly::-ms-clear {
             display: none;
         }
     </style>
-    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
 
-    <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.string.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/Utilities.API.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.popup.js"></script>
     <script type="text/javascript" src="~/AppScripts/API/MonitorAPI.js"></script>
     <script type="text/javascript" src="~/AppScripts/DTO/DTMonitor.js"></script>
     <script type="text/javascript" src="~/AppScripts/Controllers/Monitor.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
-        })
-    </script>
+
 </head>
 <body>
-    <div class="view-section-left">
-        <div class="view-section-left-head">
-            <div class="img-H">
-                <img src='@Url.Content("~/Images/H4.png")' style="width:50px; height:40px;" alt="relay" />
-                <div class="view-section-left-head-name">Relay</div>
-            </div>
-        </div>
-        <div class="view-section-left-container">
-            <div id="menu-left" class="menu-left">
-            </div>
-        </div>
-    </div>
-    <!--
-    -->
-    <div class="view-section-center">
-        @*@Html.Partial("../Shared/_LoginPartial")*@
+
+    @*<div class="view-section-center">*@
+      
         <div class="view-section-center-head">
         <div class="title-section-center-head">Monitor</div>
 
-            <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div></div>
+            <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div>
+        </div>
+
         <div class="view-section-center-container">
             <div class="card card-3">
                 <table id="monitor-item" class="form-input">
@@ -71,12 +40,6 @@
                                 <input type="text" data-field="temperatureAlert" hidden />
                             </td>
                         </tr>
-                        <!--<tr>
-                            <td>Temperature Alert</td>
-                            <td><input id="numberOnly" type="number" <!--onkeypress="return IsNumeric(event);-->
-                        <!--" data-field="temperatureAlert" /></td>-->
-                        <!--<td><input type="text" data-field="temperatureAlert" /></td>
-                        </tr>-->
                     </tbody>
                 </table>
                 <div class="form-command-container">
@@ -110,7 +73,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    @*</div>*@
 </body>
 </html>
 
