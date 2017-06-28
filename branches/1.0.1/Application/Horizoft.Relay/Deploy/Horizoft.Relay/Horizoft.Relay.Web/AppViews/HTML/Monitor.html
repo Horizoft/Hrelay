@@ -1,0 +1,72 @@
+﻿<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="/Styles/pagestructure.css">
+	<link rel="stylesheet" href="/Styles/menu_left.css">
+	<link rel="stylesheet" href="/Styles/component_library.css">
+    <link rel="stylesheet" href="/Styles/page-input.css">
+	<style>
+
+	</style>
+
+	<script type="text/javascript" src="/Scripts/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="/Scripts/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	
+    <script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.js"></script>
+	<script type="text/javascript" src="/AppScripts/Utilities/jquery.utilities.string.js"></script>
+	<script type="text/javascript" src="/AppScripts/Utilities/jquery.webapi.js"></script>
+	<script type="text/javascript" src="/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
+	<script>
+        $(document).ready(function(){
+            $("#menu-left").loadLeftMenu("../Home/LeftMenu.html", "blue-highlight");
+
+            var monitor = {
+                id: 1,
+                logURL : "http://monitor.bepetrothai.com/log.txt",
+                temperatureAlert : 20
+            };
+
+            $(".form-input").bindView(monitor);
+
+        })
+
+		</script>
+</head>
+
+<body>
+	<div class="view-section-left">
+		<div class="view-section-left-head"></div>
+		<div class="view-section-left-container">
+			<div id="menu-left" class="menu-left">
+			</div>
+		</div>
+	</div><!--
+	--><div class="view-section-center">
+		<div class="view-section-center-head"></div>
+		<div class="view-section-center-container">
+            <div class="card card-3">
+                <table class="form-input">
+                    <tbody>
+                        <tr>
+                            <td>Log URL</td>
+                            <td><input type="text" data-field="logURL" /></td>
+                        </tr>
+                        <tr>
+                            <td>Temperature Alert</td>
+                            <td><input type="text" data-field="temperatureAlert" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-command-container">
+                    <div class="form-command">
+                        <button class="command-green">Save</button>
+                        <button class="command-red">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</body>
+
+</html>

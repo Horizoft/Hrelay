@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="~/scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/Utilities.API.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/MonitorAPI.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/MailAPI.js"></script>
+    <script type="text/javascript" src="~/AppScripts/API/HostAPI.js"></script>
+
+    <script type="text/javascript">
+        var monitorApi = new MonitorAPI();
+        var mailApi = new MailAPI();
+        var hostApi = new HostAPI();
+
+        $(document).ready(function () {
+
+            var monitor = {
+                id: 9,
+                logURL: "http://monitor.bepetrothai.com/log2.txt",
+                temperatureAlert: 20
+            };
+
+            var mail = {
+                Id: 8,
+                sender: "admin@horizoft.com",
+                recipients: "potsavas.k@horizoft.com;earl@horizoft.com;natthajak.r@horizoft.com",
+                subject: "Test Edit2",
+                message: "test1"
+            };
+
+            var host = {
+                id: 3,
+                url: "ews.horizoft.com",
+                protocal: "EWS",
+                port: "88",
+                userName: "ews@horizoft.com",
+                password: "p_12345"
+            };
+            
+            //monitorApi.GetFirst();
+            //monitorApi.Add(monitor);
+            //monitorApi.Update(monitor); 
+            //monitorApi.Delete(monitor);
+
+            console.log("Get Mail data :");
+            var mail = mailApi.GetFirst();
+            console.log("     " + mail.error);
+
+            if (mail.error == undefined) {
+                console.log("     Found Mail data.");
+            }
+
+            console.log("Get Monitor data :");
+            var monitor = monitorApi.GetFirst();
+            console.log("     " + monitor.error);
+
+            if (monitor.error == undefined) {
+                console.log("     Found Monitor data.");
+            }
+
+            console.log("Get Host data :");
+            var host = hostApi.GetFirst();
+            console.log("     " + host.error);
+
+            if (host.error == undefined) {
+                console.log("     Found Host data.");
+            }
+
+            //mailApi.Add(mail);
+            //mailApi.Update(mail);
+            //mailApi.Delete(mail);
+
+            //hostApi.GetFirst();
+            //hostApi.Add(host);
+            //hostApi.Update(host);
+            //hostApi.Delete(host);
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

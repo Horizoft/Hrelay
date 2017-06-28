@@ -1,0 +1,53 @@
+﻿@model Horizoft.Relay.WebAuthentication.Models.ExpandedUserDTO
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <body style="background-color:#f5f5f5;  padding:0px; ">
+        
+            <div class="nav"><h4>Create User</h4></div>
+            
+            <div class="form-horizontal-create">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group-create">
+                    @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10-create">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                @*</div>*@
+
+                @*<div class="form-group-create">*@
+                    @*@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10-create">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password,"", new { @class = "text-danger" })
+                    </div>
+                @*</div>*@
+
+                @*<div class="form-group">
+                @Html.LabelFor(model => model.Roles,
+               htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Roles")
+                </div>
+            </div>*@
+
+                @Html.HiddenFor(model => model.Roles, new { Value = 0 })
+
+                @*<div class="form-group-create">*@
+                    <div class="col-md-offset-2-create">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                        @Html.ActionLink("Back to List","Index",null,new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+    </body>
+}

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<datavalues>
+  <input1state>0</input1state>
+  <input2state>0</input2state>
+  <hightime1>0.000</hightime1>
+  <hightime2>0.000</hightime2>
+  <count1>0</count1>
+  <count2>0</count2>
+  <relay1state>0</relay1state>
+  <relay2state>0</relay2state>
+  <relay3state>0</relay3state>
+  <relay4state>0</relay4state>
+  <relay5state>0</relay5state>
+  <relay6state>0</relay6state>
+  <relay7state>0</relay7state>
+  <relay8state>0</relay8state>
+  <relay9state>0</relay9state>
+  <relay10state>0</relay10state>
+  <units>C</units>
+  <sensor1temp>27.6</sensor1temp>
+  <sensor2temp>x.x</sensor2temp>
+  <sensor3temp>x.x</sensor3temp>
+  <sensor4temp>x.x</sensor4temp>
+  <sensor5temp>x.x</sensor5temp>
+  <sensor6temp>x.x</sensor6temp>
+  <sensor7temp>x.x</sensor7temp>
+  <sensor8temp>x.x</sensor8temp>
+  <sensor9temp>x.x</sensor9temp>
+  <sensor10temp>x.x</sensor10temp>
+  <extvar0>0.00</extvar0>
+  <extvar1>0.00</extvar1>
+  <extvar2>0.00</extvar2>
+  <extvar3>0.00</extvar3>
+  <extvar4>0.00</extvar4>
+  <serialNumber>00:0C:C8:03:83:E9</serialNumber>
+  <time>1497371226</time>
+</datavalues>
