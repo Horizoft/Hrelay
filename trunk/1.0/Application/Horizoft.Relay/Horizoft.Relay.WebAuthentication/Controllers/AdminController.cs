@@ -25,7 +25,7 @@ namespace Horizoft.Relay.WebAuthentication.Controllers
             try
             {
                 int intPage = 1;
-                int intPageSize = 5;
+                int intPageSize = 100;
                 int intTotalPageCount = 0;
 
                 if (searchStringUserNameOrEmail != null)
