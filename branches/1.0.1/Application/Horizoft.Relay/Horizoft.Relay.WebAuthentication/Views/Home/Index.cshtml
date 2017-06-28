@@ -1,19 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home";
-    Layout = string.Empty;
+    Layout = "~/Views/Shared/MasterPage.cshtml";
 }
 
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <script>
-        var serviceUrl = '@Horizoft.Relay.Web.Providers.ConfigProvider.ServiceUrl';
-    </script>
-    <link href="~/Styles/pagestructure.css" rel="stylesheet" />
-    
-    <link href="~/Styles/menu_left2.css" rel="stylesheet" />
-    <link href="~/Styles/component_library.css" rel="stylesheet" />
-    <link href="~/Styles/jquery/base/jquery.ui.all.css" rel="stylesheet" />
+
 
     <style>
         .report-input {
@@ -185,36 +178,31 @@
         }
     </style>
 
-    <script type="text/javascript" src="~/Scripts/jquery-1.7.2.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/ui/jquery.ui.core.js"></script>
     <script type="text/javascript" src="~/Scripts/ui/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="~/Scripts/ui/jquery.ui.datepicker.js"></script>
     <script type="text/javascript" src="~/Scripts/highcharts.js"></script>
-    <script type="text/javascript" src="~/Scripts/exporting.js"></script>
+    <script type="text/javascript" src="~/Scripts/exporting.js"></script>*@
 
-    <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.js"></script>
+    @*<script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/jquery.utilities.string.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.menu.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/Utilities.API.js"></script>
     <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.webapi.js"></script>
-    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.datereport.js"></script>
+    <script type="text/javascript" src="~/AppScripts/Utilities/horizoft.jquery.datereport.js"></script>*@
     <script type="text/javascript" src="~/AppScripts/API/RelayAPI.js"></script>
     <script type="text/javascript" src="~/AppScripts/API/MonitorAPI.js"></script>
     <script type="text/javascript" src="~/AppScripts/API/TemperatureReportAPI.js"></script>
 
     <script>
-
-        //var temperatureReportApi = new TemperatureReportAPI();
         var relayApi = new RelayAPI();
 
         $(document).ready(function () {
-            //$("#menu-left").loadLeftMenu("/AppViews/Home/LeftMenu2.html", "blue-highlight");
-            //$("#menu-left").loadLeftMenu(menuUrl + "/LeftMenu2.html", "blue-highlight");
-            $("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
-            //$("#report").dateReport({ date: "2017-04-07" });
+            //$("#menu-left").loadLeftMenu('@Url.Content("~/Home/LeftMenu")', "blue-highlight");
+
             getIoTReference();
             setInterval(updateIoTTransaction, 5000);
-
         })
 
     </script>
@@ -222,52 +210,17 @@
     <script type="text/javascript" src="~/AppScripts/Controllers/Home.js"></script>
 </head>
 <body>
-    <div class="view-section-left">
 
-        <div class="view-section-left-head">
-            <div class="img-H">
-                <img src='@Url.Content("~/Images/H4.png")' style="width:50px; height:40px;" alt="relay" />
-                <div class="view-section-left-head-name">Relay</div>
-            </div>
-
-        </div>
-
-        <div class="view-section-left-container">
-
-            <div class="menu-left" id="menu-left">
-            </div>
-        </div>
-    </div>
-    <!--
-    -->
-    <div class="view-section-center">
+    @*<div class="view-section-center">*@
       
-        @*@Html.Partial("../Shared/_LoginPartial")*@
+
         <div class="view-section-center-head">
             <div class="title-section-center-head">Home</div>
             
             <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div>
-            @*<span style="float:right;">
-                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                        {
-                            @Html.AntiForgeryToken()
-                               <a style="color:#FFFFFF;" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-                        
-                        }
-            </span>
-            <span style="float:right;">@Html.ActionLink(User.Identity.GetUserName(), "", "", routeValues: null, htmlAttributes: new { title = "" })</span>*@
+        </div>
+    @*</div>*@
 
-        </div>
-        <!--<div id="report" class="view-section-center-container">
-            <div class="report-input">
-                <ul id="dateList">
-                    <li>
-                        <input type="text" class="datePicker" data-field="date" /><img class="deleteDatePicker" src="/Images/delete.png" data-action="date-delete" />
-                    </li>
-                </ul>
-            </div>
-            <div id="chart" class="report-output"></div>-->
-        </div>
         <div class="view-section-center-container form-output">
             <div class="dashboard-row">
 
@@ -279,10 +232,6 @@
                                 <div><span class="dashboard-number" data-field="t1"></span><span class="dashboard-number-light">&#176;C</span></div>
                                 <div class="dashboard-label-temp" data-field="sensor1Name"></div>
                             </div>
-                            <!--<div>
-                                <div><span class="dashboard-number" data-field="t2"></span><span class="dashboard-number-light">&#176;C</span></div>
-                                <div class="dashboard-label" data-field="sensor2Name"></div>
-                            </div>-->
                         </div>
                         <div class="dashboard-datetime">
                             <div class="dashboard-datetime-day" data-field="currentDay"></div>
@@ -292,7 +241,6 @@
                     </div>
                 </div>
                 <div class="dashboard-row-middle">
-                    <!--<img src="image/Freez_blue.png" alt="test img" style="width:150px;height:150px;">*/-->
                     <div class="dashboard-appliance">
                         <div class="dashboard-appliance-icon" data-status="0">
                             <input type="text" data-field="r1" hidden />
