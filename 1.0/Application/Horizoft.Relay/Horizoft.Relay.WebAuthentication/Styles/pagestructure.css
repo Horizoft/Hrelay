@@ -68,7 +68,7 @@
     list-style-type: none;
     font-size: 14px;
     float: right;
-    margin-top:-48px;
+    margin-top:-52px;
     font-weight:300;
 }
 .navbar-right {
@@ -79,12 +79,12 @@
         float: left;
         font-size: 12px;
         margin-top: 10px;
-    }
-    .navbar-right li a[title="Admin"]:hover {
-        color: black;
+}
+.navbar-right li a[title="Admin"]:hover {
+       
         font-weight: bold;
         transition-duration: 0.3s;
-    }
+ }
 .navbar-right li a[href="javascript:document.getElementById('logoutForm').submit()"] {
         color: white;
         margin-top: 10px;
@@ -93,7 +93,7 @@
 
 }
 .navbar-right li a[href="javascript:document.getElementById('logoutForm').submit()"]:hover {
-       color:black;
+      
        font-weight:bold;
        transition-duration:0.3s;
  } 
