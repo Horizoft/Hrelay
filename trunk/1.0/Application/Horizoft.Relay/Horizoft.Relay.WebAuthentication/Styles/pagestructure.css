@@ -98,8 +98,6 @@
        transition-duration:0.3s;
  } 
 
-
-
 .view-section-center-container {
     height: 100vh;
     /*overflow: scroll;*/
@@ -108,7 +106,7 @@
     text-align: center;
     /*margin-top:60px;*/
 }
-
+/*-------------Admin page--------------------------*/
 .card {
     display: inline-block;
     background: #fff;
@@ -120,10 +118,63 @@
     display: inline-block;
     background: #fff;
     border-radius: 2px;
-    margin: 1rem;
+    margin: 2rem;
     padding: 30px;
     font-size:13px;
 }
+
+.table-admin {
+    color: #808080;
+    width: 100%;
+    border-collapse: collapse;
+    float: left;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+   
+}
+.table-admin th:nth-child(1) {
+    width: 150px;
+   
+}
+.table-admin th:nth-child(2) {
+    min-width: 150px;
+    text-align: left;
+}
+.table-admin tr th {
+    padding: 15px 20px;
+    color: #000000;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    font-weight: 400;
+    }
+.table-admin tr td {
+    padding: 12px 0px 7px 20px;
+    vertical-align: top;
+}
+.btn-create a {
+    background-color: #ffffff;
+    border: 2px solid #4CAF50;
+    color: black;
+    padding: 5px 7px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    cursor: pointer;
+    float: right;
+}
+.btn-create a:hover {
+     background-color: #4CAF50;
+     color: white;
+     transition-duration:0.3s;
+
+}
+
+    
+ /*---------------------------------*/
+
+
 
 .card-1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -149,6 +200,19 @@
 .card-5 {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*-----------Edit User page-----------------*/
 .form-horizontal-create {
     text-align: center;
@@ -256,3 +320,4 @@
     font-size: 13px;
     font-weight: bold;
 }
+/*-------------------------------*/

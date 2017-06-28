@@ -68,26 +68,27 @@
    <div class="view-section-center-container">
    <div class="card-admin card-3">
         <p>
+            <div class="btn-create">
             @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
             @*@Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
                 @Html.ActionLink("Back to Home", "../", "_Home", null, new { @class = "btn btn-default" })*@
+                </div>
         </p>
         <br />
 
-            <table class="table">
+            <table class="table-admin">
                 <tr>
                     <th>
                         Email
                     </th>
-                    <th>
-
-                    </th>
+                    <th></th>
                     <th></th>
                 </tr>
 
                 @foreach (var item in Model)
                     {
                     <tr>
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
