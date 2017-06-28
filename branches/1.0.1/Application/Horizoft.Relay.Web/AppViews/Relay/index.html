@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <title>Temperature Control</title>
+
+    <link type="text/css" rel="stylesheet" href="styleSheet1.css" />
+    <script type="text/javascript" src="script1.js"></script>
+    <script type="text/javascript" src="script2.js"></script>
+    
+</head>
+
+<body onload="javascript:init();">
+    <input type=hidden id=refOn value="1">
+    <input type=hidden id=refTime value="3">
+    <input type=hidden id=devRtc value="1496255487">
+    <div class=main>
+        <table>
+            <tr>
+                <td colspan=3 id=hd class=header>Temperature Control</td>
+            </tr>
+            <tr id=i1>
+                <td>Input 1</td>
+                <td id=it1 class=center></td>
+                <td id=ib1 class=center><span id=crb1><input type=button value="Reset Count" onclick="javascript:rstCnt(1)"></span>&nbsp;<span id=cval1></span></td>
+            </tr>
+            <tr id=i2>
+                <td>Input 2</td>
+                <td id=it2 class=center></td>
+                <td id=ib2 class=center><span id=crb2><input type=button value="Reset Count" onclick="javascript:rstCnt(2)"></span>&nbsp;<span id=cval2></span></td>
+            </tr>
+            <script type="text/javascript">
+                var i;
+                var n = ["extVar0", "extVar1", "extVar2", "extVar3"];
+                var eb = ["ON", "ON", "ON", "ON"];
+                var eb2 = ["OFF", "OFF", "OFF", "OFF"];
+                var d = ["", "RelayDamage2", "RelayDamage1", "18000BTU 2", "Fan", "Exhaust Fan", "Air Vent", "14000BTU", "RelayDamage3", "RelayDamage4", "18000BTU 1"];
+                var o = ["", "ON", "ON", "ON", "ON", "ON", "ON", "ON", "ON", "ON", "ON"];
+                var f = ["", "OFF", "OFF", "OFF", "OFF", "OFF", "OFF", "OFF", "OFF", "OFF", "OFF"];
+                var p = ["", "PULSE", "PULSE", "PULSE", "PULSE", "PULSE", "PULSE", "PULSE", "PULSE", "PULSE", "PULSE"];
+                var s = ["", "Rack 2 Sensor", "Rack 3 Sensor", "Sensor 3"];
+                for (i = 1; i <= 10; i++) {
+                    document.writeln("<tr id=\"r" + i + "\"><td>" + d[i] + "</td><td id=\"rs" + i + "\" class=\"center\">ON</td><td id=\"bc1\" class=\"center\"><span id=\"oob" + i + "\"><input type=\"button\" value=\"" + o[i] + "\" onclick=\"javascript:setState(" + i + ",1)\"><input type=\"button\" value=\"" + f[i] + "\" onclick=\"javascript:setState(" + i + ",0)\"></span><span id=\"pb" + i + "\"><input type=\"button\" value=\"" + p[i] + "\" onclick=\"javascript:setState(" + i + ",2)\"></span></td></tr>");
+                }
+                for (i = 1; i <= 3; i++) {
+                    document.writeln("<tr id=\"s" + i + "\"><td>" + s[i] + "</td><td id=\"st" + i + "\" colspan=\"2\"></td></tr>");
+                }
+                for (i = 0; i <= 3; i++) {
+                    document.writeln("<tr id=\"e" + i + "\"><td>" + n[i] + "</td><td id=\"es" + i + "\" class=\"center\">ON</td><td id=\"ebc" + i + "\" class=\"center\"><span id=\"eb1" + i + "\"><input type=\"button\" value=\"" + eb[i] + "\" onclick=\"javascript:setV(" + i + ",1)\"></span><span id=\"eb2" + i + "\"><input type=\"button\" value=\"" + eb2[i] + "\" onclick=\"javascript:setV(" + i + ",0)\"></span></td></tr>");
+                }
+            </script>
+            <tr>
+                <td colspan=3>&nbsp;&nbsp;Current Time: <span id=rtc-disp>Init...</span></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
