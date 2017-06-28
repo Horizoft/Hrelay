@@ -66,47 +66,47 @@
         <div class="logout-item-right-head">@Html.Partial("../Shared/_LoginPartial")</div>
     </div>
    <div class="view-section-center-container">
-    <div class="card-admin card-3">
-    <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
-        @*@Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
-            @Html.ActionLink("Back to Home", "../", "_Home", null, new { @class = "btn btn-default" })*@
-    </p>
-    <br />
+   <div class="card-admin card-3">
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
+            @*@Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Back to Home", "../", "_Home", null, new { @class = "btn btn-default" })*@
+        </p>
+        <br />
 
-    <table class="table">
-        <tr>
-            <th>
-                Email
-            </th>
-            <th>
+            <table class="table">
+                <tr>
+                    <th>
+                        Email
+                    </th>
+                    <th>
 
-            </th>
-            <th></th>
-        </tr>
+                    </th>
+                    <th></th>
+                </tr>
 
-        @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
-                    @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
-                {
-                        @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
-                    new { onclick = "return confirm('Are you sure you wish to delete this user?');" })
-                    }
-                </td>
-            </tr>
-        }
+                @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
+                            @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
+                        {
+                                @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
+                            new { onclick = "return confirm('Are you sure you wish to delete this user?');" })
+                            }
+                        </td>
+                    </tr>
+                }
 
 
-    </table>
+            </table>
 
     </div>
     </div>
