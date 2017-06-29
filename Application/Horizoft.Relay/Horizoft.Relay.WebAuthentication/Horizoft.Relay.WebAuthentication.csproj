@@ -530,7 +530,6 @@
     <Content Include="Styles\pagestructure.css" />
     <Content Include="Styles\popup.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Views\Shared\_Layout2.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -581,6 +580,7 @@
     <Content Include="Views\Admin\EditRoles.cshtml" />
     <Content Include="Views\Admin\EditUser.cshtml" />
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
+    <Content Include="Views\Shared\MasterPage.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -14,8 +14,8 @@
         border-collapse: collapse;
     }
 </style>
-@*@if (Request.IsAuthenticated)
-{*@
+@if (Request.IsAuthenticated)
+{
 <table class="left-manu">
     <tbody class="tb_left_manu">
         <!--<tr><td data-menu-level="1" data-menu-item="true"><a href="/Home/">Home</a></td></tr>-->
@@ -25,13 +25,14 @@
         <tr><td data-menu-level="2" data-menu-item="true"><a href='@Url.Content("~/Setting/Mail")'>Temperature Alert</a></td></tr>
         <tr><td data-menu-level="2" data-menu-item="true"><a href='@Url.Content("~/Setting/Host")'>Mail Server</a></td></tr>
 
-        @*@if (User.IsInRole("Administrator"))
+        @if (User.IsInRole("Administrator"))
         {
             <tr><td data-menu-level="2" data-menu-item="true" class="admin">
-                <a href='@Url.Content("~/Admin")'>Admin</a>
-                </td></tr>
+                <a href='@Url.Content("~/Admin")'>User Accounts</a>
+                </td>
+        </tr>
 
-        }*@
+        }
         
         <tr><td data-menu-level="1" data-menu-item="true"><a href='@Url.Content("~/Reports/TemperatureDaily")'>Report</a></td></tr>
 
@@ -57,7 +58,7 @@
 
     </tbody>
 </table>
-    @*}*@
+    }
 
 
 
