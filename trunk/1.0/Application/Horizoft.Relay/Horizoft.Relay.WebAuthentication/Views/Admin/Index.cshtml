@@ -90,20 +90,20 @@
                             @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
-                            @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
-                        {
-                                @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
-                            new { onclick = "return confirm('Are you sure you wish to delete this user?');" })
+                            @Html.ActionLink("edit", "EditUser", new { UserName = item.UserName }, new { @class = "btn-edit" })  
+                            @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower())){
+                                   @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
+                                        new { onclick = "return confirm('Are you sure you wish to delete this user?');" , @class="btn-del"})
                             }
-                           
                         </td>
             </tr>
                 }
 
-             
+
+
             </table>
-      
+
+
        <div class="btn-create">
            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
            @*@Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
